@@ -29,10 +29,8 @@ r = r0
 Istim = np.zeros((4, 1))
 # define leak conductance (nS)
 gl = np.array([[6.25], [10], [5], [5]])
-V0 = np.array([[-52.1261], [-50.4308], [-51.3239], [-51.9664]])
 # On the original code Ibkg0 was loaded from the mat file
-Ibkg0 = np.multiply((V0 - Vl), gl) - np.dot(W, r0)
-
+Ibkg0 = np.array([[115.03], [233.66], [94.31], [89.91]])
 Vth = -50 # mV
 
 # Current of the modulatory input, applied only after 5ms
@@ -40,7 +38,7 @@ Iloc = 10
 
 # TODO: find out what sol is
 sol = r0
-vt = V0
+vt = np.ones((4, 1)) * Vl
 iSynt = np.dot(W, r) + Istim + Ibkg0
 tau = np.array([[0.0280], [0.0080], [0.0160], [0.0160]])
 
