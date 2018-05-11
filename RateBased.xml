@@ -43,7 +43,7 @@
 
             <DerivedVariable name="f" dimension="per_time" exposure="f" value="( (V-Vth)/(tau*(Vth-Vr)) ) * (1/(1-exp(-1*(V-Vth)/Vscale)))"/>
 
-            <TimeDerivative variable="r" value="(-1*r + f)/tau"/>
+            <TimeDerivative variable="r" value="(-1*r + f)/tau_r"/>
 
 
             <OnCondition test="V .gt. Vth">
