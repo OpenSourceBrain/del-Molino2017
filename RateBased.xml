@@ -12,7 +12,6 @@
         <Parameter name="Vl" dimension="voltage"/>
         <Parameter name="Vscale" dimension="voltage"/>
         <Parameter name="r0" dimension="per_time"/>
-        <Parameter name="V0" dimension="voltage"/>
 
         <Parameter name="gl" dimension="conductance"/>
 
