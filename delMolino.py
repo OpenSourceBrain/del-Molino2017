@@ -8,7 +8,7 @@ def calculate_phi(Vss, Vth):
     Vr = -60 # mV
     tau = np.array([[0.0288], [0.0080], [0.0160], [0.0160]])
     # Note: If you do not define sV as int you will end up lost precision
-    sV = np.ones((4, 1), dtype=int) # noise (mV)
+    sV = np.ones((4, 1)) # noise (mV)
 
     '''This calculates the average rate of each population'''
     return (Vss - Vth) / (tau * (Vth - Vr) * (1 - np.exp(-(Vss - Vth) /sV)))
@@ -38,8 +38,8 @@ def calculate_population_rate(r, Ibkg, sol, T, dt):
         V = Vl + (iSyn / gl)
         iSynt = np.append(iSynt, iSyn, axis=1)
         vt = np.append(vt, V, axis=1)
-        dr = dt * (-r + calculate_phi(V, Vth))
-        #dr = dt * (-r + calculate_phi(V, Vth)) / tau_r
+        # dr = dt * (-r + calculate_phi(V, Vth))
+        dr = dt * (-r + calculate_phi(V, Vth)) / tau_r
         r = r + dr
         sol = np.append(sol, r, axis=1)
 
@@ -112,5 +112,20 @@ plt.plot(timeLine, sol_high[3, :], 'g')
 plt.xlim(xmin=0, xmax=20)
 plt.show()
 
+# Plot membrane voltage over time
+plt.figure()
+plt.plot(timeLine, vt_high[0, :], 'b')
+plt.plot(timeLine, vt_high[1, :], 'r')
+plt.plot(timeLine, vt_high[2, :], 'm')
+plt.plot(timeLine, vt_high[3, :], 'g')
+plt.show()
+
+# Plot iSyn over time
+plt.figure()
+plt.plot(timeLine, iSynt_high[0, :], 'b')
+plt.plot(timeLine, iSynt_high[1, :], 'r')
+plt.plot(timeLine, iSynt_high[2, :], 'm')
+plt.plot(timeLine, iSynt_high[3, :], 'g')
+plt.show()
 
 print('done')
