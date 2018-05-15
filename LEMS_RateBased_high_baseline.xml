@@ -12,10 +12,10 @@
 
     <!-- Main NeuroML2 content. Based on http://www.scholarpedia.org/article/FitzHugh-Nagumo_model -->
 
-    <rateCell id="E"   Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="6.25nS" tau="28ms" tau_r="2ms" r0="30Hz"/>
-    <rateCell id="PV"  Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="10nS"   tau="8ms"  tau_r="2ms" r0="50Hz"/>
-    <rateCell id="SST" Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="5nS"    tau="16ms" tau_r="2ms" r0="30Hz"/>
-    <rateCell id="VIP" Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="5nS"    tau="16ms" tau_r="2ms" r0="20Hz"/>
+    <rateCell id="E"   Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="6.25nS" tau="28.8ms" tau_r="2ms" r0="30Hz"/>
+    <rateCell id="PV"  Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="10nS"   tau="8ms"   tau_r="2ms" r0="50Hz"/>
+    <rateCell id="SST" Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="5nS"    tau="16ms"  tau_r="2ms" r0="30Hz"/>
+    <rateCell id="VIP" Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="5nS"    tau="16ms"  tau_r="2ms" r0="20Hz"/>
 
     <!--Dummy synapse which emits no current. Used as presynaptic endpoint for analog synaptic connection.-->
     <silentSynapse id="silent1"/>
@@ -37,37 +37,37 @@
 
 
         <continuousProjection id ="vip_sst" presynapticPopulation="vipPop" postsynapticPopulation="sstPop">
-            <continuousConnectionInstanceW id="0" preCell="../vipPop[0]" postCell="../sstPop[0]" preComponent="silent1" postComponent="rs" weight="-2.79"/>
+            <continuousConnectionInstanceW id="0" preCell="../vipPop[0]" postCell="../sstPop[0]" preComponent="silent1" postComponent="rs" weight="-2.7896"/>
         </continuousProjection>
 
         <continuousProjection id ="sst_e" presynapticPopulation="sstPop" postsynapticPopulation="ePop">
-            <continuousConnectionInstanceW id="0" preCell="../sstPop[0]" postCell="../ePop[0]" preComponent="silent1" postComponent="rs" weight="-0.80"/>
+            <continuousConnectionInstanceW id="0" preCell="../sstPop[0]" postCell="../ePop[0]" preComponent="silent1" postComponent="rs" weight="-0.8039"/>
         </continuousProjection>
         <continuousProjection id ="sst_pv" presynapticPopulation="sstPop" postsynapticPopulation="pvPop">
-            <continuousConnectionInstanceW id="0" preCell="../sstPop[0]" postCell="../pvPop[0]" preComponent="silent1" postComponent="rs" weight="-2.13"/>
+            <continuousConnectionInstanceW id="0" preCell="../sstPop[0]" postCell="../pvPop[0]" preComponent="silent1" postComponent="rs" weight="-2.1291"/>
         </continuousProjection>
         <continuousProjection id ="sst_vip" presynapticPopulation="sstPop" postsynapticPopulation="vipPop">
-            <continuousConnectionInstanceW id="0" preCell="../sstPop[0]" postCell="../vipPop[0]" preComponent="silent1" postComponent="rs" weight="-0.16"/>
+            <continuousConnectionInstanceW id="0" preCell="../sstPop[0]" postCell="../vipPop[0]" preComponent="silent1" postComponent="rs" weight="-0.1560"/>
         </continuousProjection>
 
         <continuousProjection id ="pv_e" presynapticPopulation="pvPop" postsynapticPopulation="ePop">
-            <continuousConnectionInstanceW id="0" preCell="../pvPop[0]" postCell="../ePop[0]" preComponent="silent1" postComponent="rs" weight="-0.33"/>
+            <continuousConnectionInstanceW id="0" preCell="../pvPop[0]" postCell="../ePop[0]" preComponent="silent1" postComponent="rs" weight="-0.3329"/>
         </continuousProjection>
         <continuousProjection id ="pv_pv" presynapticPopulation="pvPop" postsynapticPopulation="pvPop">
-            <continuousConnectionInstanceW id="0" preCell="../pvPop[0]" postCell="../pvPop[0]" preComponent="silent1" postComponent="rs" weight="-3.45"/>
+            <continuousConnectionInstanceW id="0" preCell="../pvPop[0]" postCell="../pvPop[0]" preComponent="silent1" postComponent="rs" weight="-3.4554"/>
         </continuousProjection>
 
         <continuousProjection id ="e_e" presynapticPopulation="ePop" postsynapticPopulation="ePop">
-            <continuousConnectionInstanceW id="0" preCell="../ePop[0]" postCell="../ePop[0]" preComponent="silent1" postComponent="rs" weight="2.42"/>
+            <continuousConnectionInstanceW id="0" preCell="../ePop[0]" postCell="../ePop[0]" preComponent="silent1" postComponent="rs" weight="2.4167"/>
         </continuousProjection>
         <continuousProjection id ="e_pv" presynapticPopulation="ePop" postsynapticPopulation="pvPop">
-            <continuousConnectionInstanceW id="0" preCell="../ePop[0]" postCell="../pvPop[0]" preComponent="silent1" postComponent="rs" weight="2.97"/>
+            <continuousConnectionInstanceW id="0" preCell="../ePop[0]" postCell="../pvPop[0]" preComponent="silent1" postComponent="rs" weight="2.9706"/>
         </continuousProjection>
         <continuousProjection id ="e_sst" presynapticPopulation="ePop" postsynapticPopulation="sstPop">
-            <continuousConnectionInstanceW id="0" preCell="../ePop[0]" postCell="../sstPop[0]" preComponent="silent1" postComponent="rs" weight="4.64"/>
+            <continuousConnectionInstanceW id="0" preCell="../ePop[0]" postCell="../sstPop[0]" preComponent="silent1" postComponent="rs" weight="4.6440"/>
         </continuousProjection>
         <continuousProjection id ="e_vip" presynapticPopulation="ePop" postsynapticPopulation="vipPop">
-            <continuousConnectionInstanceW id="0" preCell="../ePop[0]" postCell="../vipPop[0]" preComponent="silent1" postComponent="rs" weight="0.71"/>
+            <continuousConnectionInstanceW id="0" preCell="../ePop[0]" postCell="../vipPop[0]" preComponent="silent1" postComponent="rs" weight="0.7162"/>
         </continuousProjection>
 
         <explicitInput target="ePop[0]" input="baselineE" destination="synapses"/>
@@ -99,7 +99,7 @@
             <Line id="vip" quantity="vipPop[0]/iSyn" scale="1pA" color="#00ff00" timeScale="1ms" />
         </Display>
 
-        <Display id="d2" title="Rates" timeScale="1s" xmin="0" xmax="20" ymin="0" ymax="65">
+        <Display id="d2" title="Rates" timeScale="1s" xmin="48" xmax="68" ymin="0" ymax="65">
             <Line id="e" quantity="ePop[0]/r" scale="1Hz" color="#0000ff" timeScale="1ms" />
             <Line id="pv" quantity="pvPop[0]/r" scale="1Hz" color="#ff0000" timeScale="1ms" />
             <Line id="sst" quantity="sstPop[0]/r" scale="1Hz" color="#DDA0DD" timeScale="1ms" />
@@ -113,7 +113,7 @@
             <Line id="vip" quantity="vipPop[0]/r" scale="1Hz" color="#00ff00" timeScale="1ms" />
         </Display>
 
-        <OutputFile id="of1" fileName="rates.dat">
+        <OutputFile id="of1" fileName="rates_high.dat">
             <OutputColumn id="e" quantity="ePop[0]/r"/>
             <OutputColumn id="pv" quantity="pvPop[0]/r"/>
             <OutputColumn id="sst" quantity="sstPop[0]/r"/>

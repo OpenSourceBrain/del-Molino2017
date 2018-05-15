@@ -12,7 +12,7 @@
 
     <!-- Main NeuroML2 content. Based on http://www.scholarpedia.org/article/FitzHugh-Nagumo_model -->
 
-    <rateCell id="E"   Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="6.25nS" tau="28ms" tau_r="2ms" r0="1Hz"/>
+    <rateCell id="E"   Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="6.25nS" tau="28.8ms" tau_r="2ms" r0="1Hz"/>
     <rateCell id="PV"  Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="10nS"   tau="8ms"  tau_r="2ms" r0="10Hz"/>
     <rateCell id="SST" Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="5nS"    tau="16ms" tau_r="2ms" r0="3Hz"/>
     <rateCell id="VIP" Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="5nS"    tau="16ms" tau_r="2ms" r0="2Hz"/>
@@ -106,7 +106,7 @@
             <Line id="vip" quantity="vipPop[0]/r" scale="1Hz" color="#00ff00" timeScale="1ms" />
         </Display>
 
-        <OutputFile id="of1" fileName="rates.dat">
+        <OutputFile id="of1" fileName="rates_low.dat">
             <OutputColumn id="e" quantity="ePop[0]/r"/>
             <OutputColumn id="pv" quantity="pvPop[0]/r"/>
             <OutputColumn id="sst" quantity="sstPop[0]/r"/>
