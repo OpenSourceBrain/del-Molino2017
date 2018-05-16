@@ -107,10 +107,15 @@
         </Display>
 
         <OutputFile id="of1" fileName="rates_low.dat">
-            <OutputColumn id="e" quantity="ePop[0]/r"/>
-            <OutputColumn id="pv" quantity="pvPop[0]/r"/>
-            <OutputColumn id="sst" quantity="sstPop[0]/r"/>
-            <OutputColumn id="vip" quantity="vipPop[0]/r"/>
+            <OutputColumn id="r_e" quantity="ePop[0]/r"/>
+            <OutputColumn id="r_pv" quantity="pvPop[0]/r"/>
+            <OutputColumn id="r_sst" quantity="sstPop[0]/r"/>
+            <OutputColumn id="r_vip" quantity="vipPop[0]/r"/>
+
+            <OutputColumn id="V_e" quantity="ePop[0]/V"/>
+            <OutputColumn id="V_pv" quantity="pvPop[0]/V"/>
+            <OutputColumn id="V_sst" quantity="sstPop[0]/V"/>
+            <OutputColumn id="V_vip" quantity="vipPop[0]/V"/>
         </OutputFile>
 
     </Simulation>
