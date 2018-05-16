@@ -12,20 +12,20 @@
 
     <!-- Main NeuroML2 content. Based on http://www.scholarpedia.org/article/FitzHugh-Nagumo_model -->
 
-    <rateCell id="E"   Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="6.25nS" tau="28ms" tau_r="2ms" r0="1Hz" V0="-52.12mV"/>
-    <rateCell id="PV"  Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="10nS"   tau="8ms"  tau_r="2ms" r0="10Hz" V0="-50.43mV"/>
-    <rateCell id="SST" Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="5nS"    tau="16ms" tau_r="2ms" r0="3Hz" V0="-51.32mV"/>
-    <rateCell id="VIP" Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="5nS"    tau="16ms" tau_r="2ms" r0="2Hz" V0="-51.96mV"/>
+    <rateCell id="E"   Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="6.25nS" tau="28ms" tau_r="2ms" r0="30Hz"/>
+    <rateCell id="PV"  Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="10nS"   tau="8ms"  tau_r="2ms" r0="50Hz"/>
+    <rateCell id="SST" Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="5nS"    tau="16ms" tau_r="2ms" r0="30Hz"/>
+    <rateCell id="VIP" Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="5nS"    tau="16ms" tau_r="2ms" r0="20Hz"/>
 
     <!--Dummy synapse which emits no current. Used as presynaptic endpoint for analog synaptic connection.-->
     <silentSynapse id="silent1"/>
 
     <rateSynapse id="rs" />
 
-    <pulseGenerator id="baselineE" delay="0ms" duration="200ms" amplitude="115.03 pA" />
-    <pulseGenerator id="baselinePV" delay="0ms" duration="200ms" amplitude="233.66 pA" />
-    <pulseGenerator id="baselineSST" delay="0ms" duration="200ms" amplitude="94.31 pA" />
-    <pulseGenerator id="baselineVIP" delay="0ms" duration="200ms" amplitude="89.91 pA" />
+    <pulseGenerator id="baselineE" delay="0ms" duration="200ms" amplitude="147.2512 pA" />
+    <pulseGenerator id="baselinePV" delay="0ms" duration="200ms" amplitude="386.7281 pA" />
+    <pulseGenerator id="baselineSST" delay="0ms" duration="200ms" amplitude="40.2657 pA" />
+    <pulseGenerator id="baselineVIP" delay="0ms" duration="200ms" amplitude="98.4368 pA" />
 
     <pulseGenerator id="modVIP" delay="50ms" duration="150ms" amplitude="10 pA" />
 
@@ -99,7 +99,14 @@
             <Line id="vip" quantity="vipPop[0]/iSyn" scale="1pA" color="#00ff00" timeScale="1ms" />
         </Display>
 
-        <Display id="d2" title="Rates" timeScale="1s" xmin="-2" xmax="200" ymin="-2" ymax="12">
+        <Display id="d2" title="Rates" timeScale="1s" xmin="0" xmax="20" ymin="0" ymax="65">
+            <Line id="e" quantity="ePop[0]/r" scale="1Hz" color="#0000ff" timeScale="1ms" />
+            <Line id="pv" quantity="pvPop[0]/r" scale="1Hz" color="#ff0000" timeScale="1ms" />
+            <Line id="sst" quantity="sstPop[0]/r" scale="1Hz" color="#DDA0DD" timeScale="1ms" />
+            <Line id="vip" quantity="vipPop[0]/r" scale="1Hz" color="#00ff00" timeScale="1ms" />
+        </Display>
+
+        <Display id="d4" title="Rates2" timeScale="1s" xmin="0" xmax="200" ymin="0" ymax="65">
             <Line id="e" quantity="ePop[0]/r" scale="1Hz" color="#0000ff" timeScale="1ms" />
             <Line id="pv" quantity="pvPop[0]/r" scale="1Hz" color="#ff0000" timeScale="1ms" />
             <Line id="sst" quantity="sstPop[0]/r" scale="1Hz" color="#DDA0DD" timeScale="1ms" />

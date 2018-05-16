@@ -1,0 +1,119 @@
+<Lems>
+
+    <Target component="sim1" />
+
+    <!-- Include core NeuroML2 ComponentType definitions -->
+    <Include file="Cells.xml" />
+    <Include file="Networks.xml" />
+    <Include file="Simulation.xml" />
+
+    <Include file="RateBased.xml" />
+
+
+    <!-- Main NeuroML2 content. Based on http://www.scholarpedia.org/article/FitzHugh-Nagumo_model -->
+
+    <rateCell id="E"   Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="6.25nS" tau="28ms" tau_r="2ms" r0="1Hz"/>
+    <rateCell id="PV"  Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="10nS"   tau="8ms"  tau_r="2ms" r0="10Hz"/>
+    <rateCell id="SST" Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="5nS"    tau="16ms" tau_r="2ms" r0="3Hz"/>
+    <rateCell id="VIP" Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="5nS"    tau="16ms" tau_r="2ms" r0="2Hz"/>
+
+    <!--Dummy synapse which emits no current. Used as presynaptic endpoint for analog synaptic connection.-->
+    <silentSynapse id="silent1"/>
+
+    <rateSynapse id="rs" />
+
+    <pulseGenerator id="baselineE" delay="0ms" duration="200ms" amplitude="115.03 pA" />
+    <pulseGenerator id="baselinePV" delay="0ms" duration="200ms" amplitude="233.66 pA" />
+    <pulseGenerator id="baselineSST" delay="0ms" duration="200ms" amplitude="94.31 pA" />
+    <pulseGenerator id="baselineVIP" delay="0ms" duration="200ms" amplitude="89.91 pA" />
+
+    <pulseGenerator id="modVIP" delay="50ms" duration="150ms" amplitude="10 pA" />
+
+    <network id="net1">
+        <population id="ePop" component="E" size="1" />
+        <population id="pvPop" component="PV" size="1" />
+        <population id="sstPop" component="SST" size="1" />
+        <population id="vipPop" component="VIP" size="1" />
+
+
+        <continuousProjection id ="vip_sst" presynapticPopulation="vipPop" postsynapticPopulation="sstPop">
+            <continuousConnectionInstanceW id="0" preCell="../vipPop[0]" postCell="../sstPop[0]" preComponent="silent1" postComponent="rs" weight="-2.79"/>
+        </continuousProjection>
+
+        <continuousProjection id ="sst_e" presynapticPopulation="sstPop" postsynapticPopulation="ePop">
+            <continuousConnectionInstanceW id="0" preCell="../sstPop[0]" postCell="../ePop[0]" preComponent="silent1" postComponent="rs" weight="-0.80"/>
+        </continuousProjection>
+        <continuousProjection id ="sst_pv" presynapticPopulation="sstPop" postsynapticPopulation="pvPop">
+            <continuousConnectionInstanceW id="0" preCell="../sstPop[0]" postCell="../pvPop[0]" preComponent="silent1" postComponent="rs" weight="-2.13"/>
+        </continuousProjection>
+        <continuousProjection id ="sst_vip" presynapticPopulation="sstPop" postsynapticPopulation="vipPop">
+            <continuousConnectionInstanceW id="0" preCell="../sstPop[0]" postCell="../vipPop[0]" preComponent="silent1" postComponent="rs" weight="-0.16"/>
+        </continuousProjection>
+
+        <continuousProjection id ="pv_e" presynapticPopulation="pvPop" postsynapticPopulation="ePop">
+            <continuousConnectionInstanceW id="0" preCell="../pvPop[0]" postCell="../ePop[0]" preComponent="silent1" postComponent="rs" weight="-0.33"/>
+        </continuousProjection>
+        <continuousProjection id ="pv_pv" presynapticPopulation="pvPop" postsynapticPopulation="pvPop">
+            <continuousConnectionInstanceW id="0" preCell="../pvPop[0]" postCell="../pvPop[0]" preComponent="silent1" postComponent="rs" weight="-3.45"/>
+        </continuousProjection>
+
+        <continuousProjection id ="e_e" presynapticPopulation="ePop" postsynapticPopulation="ePop">
+            <continuousConnectionInstanceW id="0" preCell="../ePop[0]" postCell="../ePop[0]" preComponent="silent1" postComponent="rs" weight="2.42"/>
+        </continuousProjection>
+        <continuousProjection id ="e_pv" presynapticPopulation="ePop" postsynapticPopulation="pvPop">
+            <continuousConnectionInstanceW id="0" preCell="../ePop[0]" postCell="../pvPop[0]" preComponent="silent1" postComponent="rs" weight="2.97"/>
+        </continuousProjection>
+        <continuousProjection id ="e_sst" presynapticPopulation="ePop" postsynapticPopulation="sstPop">
+            <continuousConnectionInstanceW id="0" preCell="../ePop[0]" postCell="../sstPop[0]" preComponent="silent1" postComponent="rs" weight="4.64"/>
+        </continuousProjection>
+        <continuousProjection id ="e_vip" presynapticPopulation="ePop" postsynapticPopulation="vipPop">
+            <continuousConnectionInstanceW id="0" preCell="../ePop[0]" postCell="../vipPop[0]" preComponent="silent1" postComponent="rs" weight="0.71"/>
+        </continuousProjection>
+
+        <explicitInput target="ePop[0]" input="baselineE" destination="synapses"/>
+        <explicitInput target="pvPop[0]" input="baselinePV" destination="synapses"/>
+        <explicitInput target="sstPop[0]" input="baselineSST" destination="synapses"/>
+        <explicitInput target="vipPop[0]" input="baselineVIP" destination="synapses"/>
+
+        <explicitInput target="vipPop[0]" input="modVIP" destination="synapses"/>
+
+
+    </network>
+
+    <!-- End of NeuroML2 content -->
+
+
+    <Simulation id="sim1" length="200ms" step="0.1ms" target="net1">
+
+        <Display id="d1" title="Voltages" timeScale="1s" xmin="-2" xmax="200" ymin="-80" ymax="10">
+            <Line id="e" quantity="ePop[0]/V" scale="1mV" color="#0000ff" timeScale="1ms" />
+            <Line id="pv" quantity="pvPop[0]/V" scale="1mV" color="#ff0000" timeScale="1ms" />
+            <Line id="sst" quantity="sstPop[0]/V" scale="1mV" color="#DDA0DD" timeScale="1ms" />
+            <Line id="vip" quantity="vipPop[0]/V" scale="1mV" color="#00ff00" timeScale="1ms" />
+        </Display>
+
+        <Display id="d3" title="iSyn" timeScale="1s" xmin="-2" xmax="200" ymin="0" ymax="150">
+            <Line id="e" quantity="ePop[0]/iSyn" scale="1pA" color="#0000ff" timeScale="1ms" />
+            <Line id="pv" quantity="pvPop[0]/iSyn" scale="1pA" color="#ff0000" timeScale="1ms" />
+            <Line id="sst" quantity="sstPop[0]/iSyn" scale="1pA" color="#DDA0DD" timeScale="1ms" />
+            <Line id="vip" quantity="vipPop[0]/iSyn" scale="1pA" color="#00ff00" timeScale="1ms" />
+        </Display>
+
+        <Display id="d2" title="Rates" timeScale="1s" xmin="-2" xmax="200" ymin="-2" ymax="12">
+            <Line id="e" quantity="ePop[0]/r" scale="1Hz" color="#0000ff" timeScale="1ms" />
+            <Line id="pv" quantity="pvPop[0]/r" scale="1Hz" color="#ff0000" timeScale="1ms" />
+            <Line id="sst" quantity="sstPop[0]/r" scale="1Hz" color="#DDA0DD" timeScale="1ms" />
+            <Line id="vip" quantity="vipPop[0]/r" scale="1Hz" color="#00ff00" timeScale="1ms" />
+        </Display>
+
+        <OutputFile id="of1" fileName="rates.dat">
+            <OutputColumn id="e" quantity="ePop[0]/r"/>
+            <OutputColumn id="pv" quantity="pvPop[0]/r"/>
+            <OutputColumn id="sst" quantity="sstPop[0]/r"/>
+            <OutputColumn id="vip" quantity="vipPop[0]/r"/>
+        </OutputFile>
+
+    </Simulation>
+
+
+</Lems>
