@@ -85,26 +85,27 @@
 
     <Simulation id="sim1" length="200ms" step="0.1ms" target="net1">
 
-        <Display id="d1" title="Voltages" timeScale="1s" xmin="-2" xmax="200" ymin="-80" ymax="10">
+        <Display id="d1" title="Voltages" timeScale="1ms" xmin="45" xmax="65" ymin="-80" ymax="10" unit="ms">
             <Line id="e" quantity="ePop[0]/V" scale="1mV" color="#0000ff" timeScale="1ms" />
             <Line id="pv" quantity="pvPop[0]/V" scale="1mV" color="#ff0000" timeScale="1ms" />
             <Line id="sst" quantity="sstPop[0]/V" scale="1mV" color="#DDA0DD" timeScale="1ms" />
             <Line id="vip" quantity="vipPop[0]/V" scale="1mV" color="#00ff00" timeScale="1ms" />
         </Display>
 
-        <Display id="d3" title="iSyn" timeScale="1s" xmin="-2" xmax="200" ymin="0" ymax="150">
+        <Display id="d3" title="iSyn" timeScale="1ms" xmin="45" xmax="65" ymin="0" ymax="150">
             <Line id="e" quantity="ePop[0]/iSyn" scale="1pA" color="#0000ff" timeScale="1ms" />
             <Line id="pv" quantity="pvPop[0]/iSyn" scale="1pA" color="#ff0000" timeScale="1ms" />
             <Line id="sst" quantity="sstPop[0]/iSyn" scale="1pA" color="#DDA0DD" timeScale="1ms" />
             <Line id="vip" quantity="vipPop[0]/iSyn" scale="1pA" color="#00ff00" timeScale="1ms" />
         </Display>
 
-        <Display id="d2" title="Rates" timeScale="1s" xmin="-2" xmax="200" ymin="-2" ymax="12">
+        <Display id="d2" title="Rates" timeScale="1ms" xmin="45" xmax="65" ymin="-2" ymax="12">
             <Line id="e" quantity="ePop[0]/r" scale="1Hz" color="#0000ff" timeScale="1ms" />
             <Line id="pv" quantity="pvPop[0]/r" scale="1Hz" color="#ff0000" timeScale="1ms" />
             <Line id="sst" quantity="sstPop[0]/r" scale="1Hz" color="#DDA0DD" timeScale="1ms" />
             <Line id="vip" quantity="vipPop[0]/r" scale="1Hz" color="#00ff00" timeScale="1ms" />
         </Display>
+
 
         <OutputFile id="of1" fileName="rates_low.dat">
             <OutputColumn id="r_e" quantity="ePop[0]/r"/>
