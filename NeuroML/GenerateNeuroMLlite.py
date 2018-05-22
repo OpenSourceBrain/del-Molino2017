@@ -17,11 +17,11 @@ cell.parameters = { "tau_refrac":5, "i_offset":.1 }
 net.cells.append(cell)
 
 
-input_source = InputSource(id='iclamp0', 
+input_source0 = InputSource(id='iclamp0', 
                            pynn_input='DCSource', 
-                           parameters={'amplitude':10, 'start':50., 'stop':1000.})
+                           parameters={'amplitude':10, 'start':50., 'stop':150.})
                            
-net.input_sources.append(input_source)
+net.input_sources.append(input_source0)
 
 r1 = RectangularRegion(id='network', x=0,y=0,z=0,width=100,height=100,depth=10)
 net.regions.append(r1)
@@ -79,12 +79,22 @@ for pre in pops:
                                               delay=0,
                                               weight=weight))
                                
+'''
+bkgE = InputSource(id='bkgEstim', 
+                           pynn_input='DCSource', 
+                           parameters={'amplitude':2, 'start':0., 'stop':1e6})
+                        
+net.input_sources.append(bkgE)
 
-
-net.inputs.append(Input(id='stim',
-                        input_source=input_source.id,
+net.inputs.append(Input(id='bkgE',
+                        input_source=bkgE.id,
+                        population=pE.id,
+                        percentage=100))'''
+                        
+net.inputs.append(Input(id='modulation',
+                        input_source=input_source0.id,
                         population=pVIP.id,
-                        percentage=50))
+                        percentage=100))
 
 print(net)
 print(net.to_json())
@@ -96,7 +106,7 @@ new_file = net.to_json_file('%s.json'%net.id)
 
 sim = Simulation(id='SimdelMolinoEtAl',
                  network=new_file,
-                 duration='1000',
+                 duration='200',
                  dt='0.025',
                  recordTraces={'all':'*'})
                  
