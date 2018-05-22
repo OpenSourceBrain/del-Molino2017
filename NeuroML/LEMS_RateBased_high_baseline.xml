@@ -22,10 +22,10 @@
 
     <rateSynapse id="rs" />
 
-    <pulseGenerator id="baselineE" delay="0ms" duration="200ms" amplitude="147.2512 pA" />
-    <pulseGenerator id="baselinePV" delay="0ms" duration="200ms" amplitude="386.7281 pA" />
-    <pulseGenerator id="baselineSST" delay="0ms" duration="200ms" amplitude="40.2657 pA" />
-    <pulseGenerator id="baselineVIP" delay="0ms" duration="200ms" amplitude="98.4368 pA" />
+    <pulseGenerator id="baseline_e" delay="0ms" duration="200ms" amplitude="147.2512 pA" />
+    <pulseGenerator id="baseline_pv" delay="0ms" duration="200ms" amplitude="386.7281 pA" />
+    <pulseGenerator id="baseline_sst" delay="0ms" duration="200ms" amplitude="40.2657 pA" />
+    <pulseGenerator id="baseline_viP" delay="0ms" duration="200ms" amplitude="98.4368 pA" />
 
     <pulseGenerator id="modVIP" delay="50ms" duration="150ms" amplitude="10 pA" />
 
@@ -70,10 +70,10 @@
             <continuousConnectionInstanceW id="0" preCell="../ePop[0]" postCell="../vipPop[0]" preComponent="silent1" postComponent="rs" weight="0.7162"/>
         </continuousProjection>
 
-        <explicitInput target="ePop[0]" input="baselineE" destination="synapses"/>
-        <explicitInput target="pvPop[0]" input="baselinePV" destination="synapses"/>
-        <explicitInput target="sstPop[0]" input="baselineSST" destination="synapses"/>
-        <explicitInput target="vipPop[0]" input="baselineVIP" destination="synapses"/>
+        <explicitInput target="ePop[0]" input="baseline_e" destination="synapses"/>
+        <explicitInput target="pvPop[0]" input="baseline_pv" destination="synapses"/>
+        <explicitInput target="sstPop[0]" input="baseline_sst" destination="synapses"/>
+        <explicitInput target="vipPop[0]" input="baseline_viP" destination="synapses"/>
 
         <explicitInput target="vipPop[0]" input="modVIP" destination="synapses"/>
 
