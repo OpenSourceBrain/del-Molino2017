@@ -1,7 +1,8 @@
 import numpy as np
 from random import random
 
-from neuroml import (NeuroMLDocument, Network, Population, ContinuousConnectionInstanceW, ContinuousProjection)
+from neuroml import (NeuroMLDocument, Network, Population, ContinuousConnectionInstanceW, ContinuousProjection,
+                     ExplicitInput)
 import neuroml.writers as writers
 
 # This script generates a new xml file that describes the connection between the different network population
@@ -17,8 +18,8 @@ def generatePopulationProjection(from_pop, to_pop, n_from_pop, n_to_pop, p_to_fr
                                                   postsynaptic_population=to_pop)
                 net.continuous_projections.append(projection)
                 connection = ContinuousConnectionInstanceW(id=connection_count,
-                                                           pre_cell='%s[%i]' %(from_pop, idx_from_pop),
-                                                           post_cell='%s[%i]' %(to_pop, idx_to_pop),
+                                                           pre_cell='../%s[%i]' %(from_pop, idx_from_pop),
+                                                           post_cell='../%s[%i]' %(to_pop, idx_to_pop),
                                                            pre_component='silent1',
                                                            post_component='rs',
                                                            weight=p_to_from_pop * n_from_pop)
@@ -28,9 +29,9 @@ def generatePopulationProjection(from_pop, to_pop, n_from_pop, n_to_pop, p_to_fr
 
 def run():
     # Size of the network for e, pv, sst, vip, respectively
-    n_pop = [800, 100, 50, 50]
+    #n_pop = [800, 100, 50, 50]
     # test values
-    # n_pop = [6, 2, 2, 2]
+    n_pop = [6, 4, 2, 2]
 
     # Connection probabilities for each unit in the population
     p_to_from_pops = np.array([[0.02, 1,    1,     0],
@@ -60,6 +61,17 @@ def run():
         for to_idx, to_unit in enumerate(units):
             generatePopulationProjection(pops[from_idx], pops[to_idx], n_pop[from_idx], n_pop[to_idx],
                                          p_to_from_pops[to_idx, from_idx], from_unit, to_unit, net)
+
+    # Add inputs
+    for unit_idx, unit in enumerate(units):
+        for n_idx in range(n_pop[unit_idx]):
+            exp_input = ExplicitInput(target='%s[%i]' %(unit, n_idx), input='baseline_%s' %unit, destination='synapses')
+            net.explicit_inputs.append(exp_input)
+
+            # if vip add modulatory input
+            if unit == 'vip':
+                mod_input = ExplicitInput(target='vip[%i]' %n_idx, input='modVIP', destination='synapses')
+                net.explicit_inputs.append(mod_input)
 
     # Write to file
     nml_file = 'RandomPopulationRate.nml'
