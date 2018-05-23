@@ -21,30 +21,16 @@
 
     <rateSynapse id="rs" />
 
-    <pulseGenerator id="baseline_e" delay="0ms" duration="200ms" amplitude="147.2512 pA" />
-    <pulseGenerator id="baseline_pv" delay="0ms" duration="200ms" amplitude="386.7281 pA" />
-    <pulseGenerator id="baseline_sst" delay="0ms" duration="200ms" amplitude="40.2657 pA" />
-    <pulseGenerator id="baseline_vip" delay="0ms" duration="200ms" amplitude="98.4368 pA" />
+    <pulseGenerator id="baseline_ePop" delay="0ms" duration="200ms" amplitude="147.2512 pA" />
+    <pulseGenerator id="baseline_pvPop" delay="0ms" duration="200ms" amplitude="386.7281 pA" />
+    <pulseGenerator id="baseline_sstPop" delay="0ms" duration="200ms" amplitude="40.2657 pA" />
+    <pulseGenerator id="baseline_vipPop" delay="0ms" duration="200ms" amplitude="98.4368 pA" />
 
     <pulseGenerator id="modVIP" delay="50ms" duration="150ms" amplitude="10 pA" />
 
-    <Simulation id="sim1" length="200ms" step="0.1ms" target="net1">
+    <Simulation id="sim1" length="10ms" step="0.1ms" target="net2">
 
-        <Display id="d1" title="Voltages" timeScale="1s" xmin="45" xmax="65" ymin="-80" ymax="10">
-            <Line id="e" quantity="ePop[0]/V" scale="1mV" color="#0000ff" timeScale="1ms" />
-            <Line id="pv" quantity="pvPop[0]/V" scale="1mV" color="#ff0000" timeScale="1ms" />
-            <Line id="sst" quantity="sstPop[0]/V" scale="1mV" color="#DDA0DD" timeScale="1ms" />
-            <Line id="vip" quantity="vipPop[0]/V" scale="1mV" color="#00ff00" timeScale="1ms" />
-        </Display>
-
-        <Display id="d3" title="iSyn" timeScale="1s" xmin="45" xmax="65" ymin="0" ymax="150">
-            <Line id="e" quantity="ePop[0]/iSyn" scale="1pA" color="#0000ff" timeScale="1ms" />
-            <Line id="pv" quantity="pvPop[0]/iSyn" scale="1pA" color="#ff0000" timeScale="1ms" />
-            <Line id="sst" quantity="sstPop[0]/iSyn" scale="1pA" color="#DDA0DD" timeScale="1ms" />
-            <Line id="vip" quantity="vipPop[0]/iSyn" scale="1pA" color="#00ff00" timeScale="1ms" />
-        </Display>
-
-        <Display id="d2" title="Rates" timeScale="1s" xmin="45" xmax="65" ymin="0" ymax="65">
+        <Display id="d2" title="Rates" timeScale="1s" xmin="0" xmax="10" ymin="0" ymax="25">
             <Line id="e" quantity="ePop[0]/r" scale="1Hz" color="#0000ff" timeScale="1ms" />
             <Line id="pv" quantity="pvPop[0]/r" scale="1Hz" color="#ff0000" timeScale="1ms" />
             <Line id="sst" quantity="sstPop[0]/r" scale="1Hz" color="#DDA0DD" timeScale="1ms" />
