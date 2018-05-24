@@ -14,7 +14,7 @@ def generatePopulationProjection(from_pop, to_pop, n_from_pop, n_to_pop, w_to_fr
     for idx_from_pop in range(n_from_pop):
         for idx_to_pop in range(n_to_pop):
             if random() <= p_to_from_pop:
-                projection = ContinuousProjection(id='%s%i_%s%i' %(from_unit, idx_from_pop, to_unit, idx_to_pop),
+                projection = ContinuousProjection(id='%s_%s' %(from_unit, to_unit),
                                                   presynaptic_population=from_pop,
                                                   postsynaptic_population=to_pop)
                 net.continuous_projections.append(projection)
