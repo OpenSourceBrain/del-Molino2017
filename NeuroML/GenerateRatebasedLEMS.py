@@ -1,5 +1,4 @@
 from pyneuroml.lems.LEMSSimulation import LEMSSimulation
-from neuroml import SilentSynapse, PulseGenerator
 
 # Create LEMS file
 sim_id = 'PopulationRateSim'
@@ -9,7 +8,7 @@ ls = LEMSSimulation(sim_id, 10, 0.1, 'net2')
 # Add Rate Base Components
 ls.include_lems_file('RateBased.xml', include_included=True)
 # Add specifications for these Rate Based Components
-ls.include_lems_file('RateBasedSpecifications.xml', include_included=True)
+ls.include_lems_file('RateBasedSpecifications_high_baseline.xml', include_included=True)
 # Add the the network definition
 ls.include_neuroml2_file('RandomPopulationRate.nml')
 
