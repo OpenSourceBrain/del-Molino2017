@@ -3,6 +3,7 @@
 *.pdf
 *.eps
 *.dat
+*.pyc
 /report.SimdelMolinoEtAl.txt
 /delMolinoEtAl.gv
 /LEMS_SimdelMolinoEtAl.xml
