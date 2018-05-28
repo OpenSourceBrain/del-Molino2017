@@ -1,0 +1,46 @@
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta5.xsd" id="fI_vip">
+    <silentSynapse id="silent1_vip"/>
+    <pulseGenerator id="baseline_vip0" delay="0ms" duration="200ms" amplitude="45.00 pA"/>
+    <pulseGenerator id="baseline_vip1" delay="0ms" duration="200ms" amplitude="51.00 pA"/>
+    <pulseGenerator id="baseline_vip2" delay="0ms" duration="200ms" amplitude="57.00 pA"/>
+    <pulseGenerator id="baseline_vip3" delay="0ms" duration="200ms" amplitude="63.00 pA"/>
+    <pulseGenerator id="baseline_vip4" delay="0ms" duration="200ms" amplitude="69.00 pA"/>
+    <pulseGenerator id="baseline_vip5" delay="0ms" duration="200ms" amplitude="75.00 pA"/>
+    <pulseGenerator id="baseline_vip6" delay="0ms" duration="200ms" amplitude="81.00 pA"/>
+    <pulseGenerator id="baseline_vip7" delay="0ms" duration="200ms" amplitude="87.00 pA"/>
+    <pulseGenerator id="baseline_vip8" delay="0ms" duration="200ms" amplitude="93.00 pA"/>
+    <pulseGenerator id="baseline_vip9" delay="0ms" duration="200ms" amplitude="99.00 pA"/>
+    <pulseGenerator id="baseline_vip10" delay="0ms" duration="200ms" amplitude="105.00 pA"/>
+    <pulseGenerator id="baseline_vip11" delay="0ms" duration="200ms" amplitude="111.00 pA"/>
+    <pulseGenerator id="baseline_vip12" delay="0ms" duration="200ms" amplitude="117.00 pA"/>
+    <pulseGenerator id="baseline_vip13" delay="0ms" duration="200ms" amplitude="123.00 pA"/>
+    <pulseGenerator id="baseline_vip14" delay="0ms" duration="200ms" amplitude="129.00 pA"/>
+    <pulseGenerator id="baseline_vip15" delay="0ms" duration="200ms" amplitude="135.00 pA"/>
+    <pulseGenerator id="baseline_vip16" delay="0ms" duration="200ms" amplitude="141.00 pA"/>
+    <pulseGenerator id="baseline_vip17" delay="0ms" duration="200ms" amplitude="147.00 pA"/>
+    <pulseGenerator id="baseline_vip18" delay="0ms" duration="200ms" amplitude="153.00 pA"/>
+    <pulseGenerator id="baseline_vip19" delay="0ms" duration="200ms" amplitude="159.00 pA"/>
+    <network id="net_vip">
+        <population id="vipPop" component="VIP" size="20"/>
+        <explicitInput target="vipPop[0]" input="baseline_vip0" destination="synapses"/>
+        <explicitInput target="vipPop[1]" input="baseline_vip1" destination="synapses"/>
+        <explicitInput target="vipPop[2]" input="baseline_vip2" destination="synapses"/>
+        <explicitInput target="vipPop[3]" input="baseline_vip3" destination="synapses"/>
+        <explicitInput target="vipPop[4]" input="baseline_vip4" destination="synapses"/>
+        <explicitInput target="vipPop[5]" input="baseline_vip5" destination="synapses"/>
+        <explicitInput target="vipPop[6]" input="baseline_vip6" destination="synapses"/>
+        <explicitInput target="vipPop[7]" input="baseline_vip7" destination="synapses"/>
+        <explicitInput target="vipPop[8]" input="baseline_vip8" destination="synapses"/>
+        <explicitInput target="vipPop[9]" input="baseline_vip9" destination="synapses"/>
+        <explicitInput target="vipPop[10]" input="baseline_vip10" destination="synapses"/>
+        <explicitInput target="vipPop[11]" input="baseline_vip11" destination="synapses"/>
+        <explicitInput target="vipPop[12]" input="baseline_vip12" destination="synapses"/>
+        <explicitInput target="vipPop[13]" input="baseline_vip13" destination="synapses"/>
+        <explicitInput target="vipPop[14]" input="baseline_vip14" destination="synapses"/>
+        <explicitInput target="vipPop[15]" input="baseline_vip15" destination="synapses"/>
+        <explicitInput target="vipPop[16]" input="baseline_vip16" destination="synapses"/>
+        <explicitInput target="vipPop[17]" input="baseline_vip17" destination="synapses"/>
+        <explicitInput target="vipPop[18]" input="baseline_vip18" destination="synapses"/>
+        <explicitInput target="vipPop[19]" input="baseline_vip19" destination="synapses"/>
+    </network>
+</neuroml>
