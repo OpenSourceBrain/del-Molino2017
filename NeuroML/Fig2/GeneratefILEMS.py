@@ -1,3 +1,4 @@
+import os
 import numpy as np
 import math
 from neuroml import (NeuroMLDocument, PulseGenerator, SilentSynapse, Network, ExplicitInput, Population, )
@@ -54,12 +55,13 @@ def generateLEMS(population, n_units, max_amplitude, min_amplitude):
 
 def generatefISimulationLEMS(population, units):
     # Create LEMS file
-    sim_id = 'fISim_%s' %population
+    sim_id = 'LEMS_fISim_%s.xml' %population
     ls = LEMSSimulation(sim_id, 200, 0.1, 'net_%s' %population)
 
     # Add additional LEMS file
     # Add Rate Base Components
-    ls.include_lems_file('RateBased.xml', include_included=True)
+    neuroml_path = os.path.dirname(os.getcwd())
+    ls.include_lems_file(os.path.join(neuroml_path, 'RateBased.xml'), include_included=True)
     # Add specifications for these Rate Based Components
     ls.include_lems_file('RateBasedSpecifications_high_baseline.xml', include_included=True)
     # Add the the network definition
@@ -86,5 +88,6 @@ def generatefISimulationLEMS(population, units):
         ls.add_column_to_output_file(of1, 'r%d' % unit, '%sPop[%d]/r' % (population, unit))
         ls.add_column_to_output_file(of1, 'V%d' % unit, '%sPop[%d]/V' % (population, unit))
 
-    ls.save_to_file()
+    save_path = os.path.join(sim_id)
+    ls.save_to_file(file_name=save_path)
 

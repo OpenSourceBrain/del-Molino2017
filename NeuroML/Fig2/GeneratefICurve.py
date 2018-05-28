@@ -17,10 +17,6 @@ v = {}
 
 for population_idx, population in enumerate(populations):
 
-    # check if simulation file already exists and if yes remove it
-    # pop_sim_results = 'fI_%s.dat' %population
-    # if os.path.exists(pop_sim_results):
-    #     os.remove(pop_sim_results)
     generateLEMS(population, n_units, max_amplitude[population_idx], min_amplitude[population_idx])
 
     generatefISimulationLEMS(population, n_units)
@@ -28,7 +24,8 @@ for population_idx, population in enumerate(populations):
     lems_file = 'LEMS_fISim_%s.xml' %population
 
     # Run simulation
-    results = pynml.run_lems_with_jneuroml(lems_file, nogui=True, load_saved_data=True)
+    # cleanup: remove the .dat file after loading them
+    results = pynml.run_lems_with_jneuroml(lems_file, nogui=True, load_saved_data=True, cleanup=True)
     # get the last values of the simulation and plot the fI Curve
 
     r[population] = np.zeros((n_units))
