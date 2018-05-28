@@ -27,20 +27,20 @@ def generateLEMS(population, n_units, max_amplitude, min_amplitude):
     nml_doc = NeuroMLDocument(id='fI_%s' %population)
 
     # Add silent synapsis
-    silent_syn = SilentSynapse(id='silent1')
+    silent_syn = SilentSynapse(id='silent1_%s' %population)
     nml_doc.silent_synapses.append(silent_syn)
 
     step = (max_amplitude - min_amplitude)/n_units
     amplitudes = np.arange(min_amplitude, max_amplitude, step)
 
-    net = Network(id='net2')
+    net = Network(id='net_%s' %population)
     nml_doc.networks.append(net)
     generatePopulation('%s' %population, n_units, net)
 
     for idx, amplitude in enumerate(amplitudes):
         generatePulse('%s' %population, idx, amplitude)
 
-        generateExmplicitInput('e', idx,  net)
+        generateExmplicitInput('%s' %population, idx,  net)
 
     # Write to file
     nml_file = 'fI_%s.nml' %population
@@ -54,8 +54,8 @@ def generateLEMS(population, n_units, max_amplitude, min_amplitude):
 
 def generatefISimulationLEMS(population, units):
     # Create LEMS file
-    sim_id = 'fIeSim'
-    ls = LEMSSimulation(sim_id, 200, 0.1, 'net2')
+    sim_id = 'fISim_%s' %population
+    ls = LEMSSimulation(sim_id, 200, 0.1, 'net_%s' %population)
 
     # Add additional LEMS file
     # Add Rate Base Components
