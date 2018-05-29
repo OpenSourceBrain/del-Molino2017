@@ -15,7 +15,7 @@
     <Include file="Simulation.xml"/>
     
     <Include file="../RateBased.xml"/>
-    <Include file="RateBasedSpecifications_high_baseline.xml"/>
+    <Include file="../RateBasedSpecifications_high_baseline.xml"/>
     <Include file="fI_e.nml"/>
    
     <Simulation id="LEMS_fISim_e.xml" length="200ms" step="0.1ms" target="net_e" seed="12345">  <!-- Note seed: ensures same random numbers used every run -->

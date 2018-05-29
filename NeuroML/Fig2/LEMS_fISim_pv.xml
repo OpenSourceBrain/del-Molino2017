@@ -15,7 +15,7 @@
     <Include file="Simulation.xml"/>
     
     <Include file="../RateBased.xml"/>
-    <Include file="RateBasedSpecifications_high_baseline.xml"/>
+    <Include file="../RateBasedSpecifications_high_baseline.xml"/>
     <Include file="fI_pv.nml"/>
    
     <Simulation id="LEMS_fISim_pv.xml" length="200ms" step="0.1ms" target="net_pv" seed="12345">  <!-- Note seed: ensures same random numbers used every run -->
