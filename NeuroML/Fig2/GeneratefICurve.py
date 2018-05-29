@@ -1,7 +1,4 @@
-import os
-import numpy as np
 import matplotlib.pyplot as plt
-from pyneuroml import pynml
 
 from GeneratefILEMS import generateLEMS, generatefISimulationLEMS
 
