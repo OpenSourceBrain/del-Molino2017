@@ -11,13 +11,13 @@ import neuroml.writers as writers
 def generatePopulationProjection(from_pop, to_pop, n_from_pop, n_to_pop, w_to_from_pop, p_to_from_pop, from_unit,
                                  to_unit, net):
     connection_count = 0
+    projection = ContinuousProjection(id='%s_%s' %(from_unit, to_unit),
+                                      presynaptic_population=from_pop,
+                                      postsynaptic_population=to_pop)
+    net.continuous_projections.append(projection)
     for idx_from_pop in range(n_from_pop):
         for idx_to_pop in range(n_to_pop):
             if random() <= p_to_from_pop:
-                projection = ContinuousProjection(id='%s_%s' %(from_unit, to_unit),
-                                                  presynaptic_population=from_pop,
-                                                  postsynaptic_population=to_pop)
-                net.continuous_projections.append(projection)
                 connection = ContinuousConnectionInstanceW(id=connection_count,
                                                            pre_cell='../%s[%i]' %(from_pop, idx_from_pop),
                                                            post_cell='../%s[%i]' %(to_pop, idx_to_pop),
