@@ -60,8 +60,7 @@ def generatefISimulationLEMS(population, units):
 
     # Add additional LEMS file
     # Add Rate Base Components
-    neuroml_path = os.path.dirname(os.getcwd())
-    ls.include_lems_file(os.path.join(neuroml_path, 'RateBased.xml'), include_included=True)
+    ls.include_lems_file('../RateBased.xml', include_included=True)
     # Add specifications for these Rate Based Components
     ls.include_lems_file('RateBasedSpecifications_high_baseline.xml', include_included=True)
     # Add the the network definition

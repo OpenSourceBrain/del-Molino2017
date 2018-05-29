@@ -14,7 +14,7 @@
     <Include file="Networks.xml"/>
     <Include file="Simulation.xml"/>
     
-    <Include file="/Users/jessica/Dropbox/GSoC/delMolino/NeuroML/RateBased.xml"/>
+    <Include file="../RateBased.xml"/>
     <Include file="RateBasedSpecifications_high_baseline.xml"/>
     <Include file="fI_pv.nml"/>
    
