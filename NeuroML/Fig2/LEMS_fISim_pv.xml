@@ -16,7 +16,7 @@
     
     <Include file="/Users/jessica/Dropbox/GSoC/delMolino/NeuroML/RateBased.xml"/>
     <Include file="RateBasedSpecifications_high_baseline.xml"/>
-    <Include file="fi_pv.nml"/>
+    <Include file="fI_pv.nml"/>
    
     <Simulation id="LEMS_fISim_pv.xml" length="200ms" step="0.1ms" target="net_pv" seed="12345">  <!-- Note seed: ensures same random numbers used every run -->
         

@@ -65,7 +65,7 @@ def generatefISimulationLEMS(population, units):
     # Add specifications for these Rate Based Components
     ls.include_lems_file('RateBasedSpecifications_high_baseline.xml', include_included=True)
     # Add the the network definition
-    ls.include_lems_file('fi_%s.nml' %population, include_included=True)
+    ls.include_lems_file('fI_%s.nml' %population, include_included=True)
 
     # Display outputs. To check the results plot the lowest, middle and highest values
     middle = math.ceil(units/2)
