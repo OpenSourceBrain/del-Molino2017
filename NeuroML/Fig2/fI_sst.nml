@@ -1,0 +1,46 @@
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta5.xsd" id="fI_sst">
+    <silentSynapse id="silent1_sst"/>
+    <pulseGenerator id="baseline_sst0" delay="0ms" duration="200ms" amplitude="45.00 pA"/>
+    <pulseGenerator id="baseline_sst1" delay="0ms" duration="200ms" amplitude="51.00 pA"/>
+    <pulseGenerator id="baseline_sst2" delay="0ms" duration="200ms" amplitude="57.00 pA"/>
+    <pulseGenerator id="baseline_sst3" delay="0ms" duration="200ms" amplitude="63.00 pA"/>
+    <pulseGenerator id="baseline_sst4" delay="0ms" duration="200ms" amplitude="69.00 pA"/>
+    <pulseGenerator id="baseline_sst5" delay="0ms" duration="200ms" amplitude="75.00 pA"/>
+    <pulseGenerator id="baseline_sst6" delay="0ms" duration="200ms" amplitude="81.00 pA"/>
+    <pulseGenerator id="baseline_sst7" delay="0ms" duration="200ms" amplitude="87.00 pA"/>
+    <pulseGenerator id="baseline_sst8" delay="0ms" duration="200ms" amplitude="93.00 pA"/>
+    <pulseGenerator id="baseline_sst9" delay="0ms" duration="200ms" amplitude="99.00 pA"/>
+    <pulseGenerator id="baseline_sst10" delay="0ms" duration="200ms" amplitude="105.00 pA"/>
+    <pulseGenerator id="baseline_sst11" delay="0ms" duration="200ms" amplitude="111.00 pA"/>
+    <pulseGenerator id="baseline_sst12" delay="0ms" duration="200ms" amplitude="117.00 pA"/>
+    <pulseGenerator id="baseline_sst13" delay="0ms" duration="200ms" amplitude="123.00 pA"/>
+    <pulseGenerator id="baseline_sst14" delay="0ms" duration="200ms" amplitude="129.00 pA"/>
+    <pulseGenerator id="baseline_sst15" delay="0ms" duration="200ms" amplitude="135.00 pA"/>
+    <pulseGenerator id="baseline_sst16" delay="0ms" duration="200ms" amplitude="141.00 pA"/>
+    <pulseGenerator id="baseline_sst17" delay="0ms" duration="200ms" amplitude="147.00 pA"/>
+    <pulseGenerator id="baseline_sst18" delay="0ms" duration="200ms" amplitude="153.00 pA"/>
+    <pulseGenerator id="baseline_sst19" delay="0ms" duration="200ms" amplitude="159.00 pA"/>
+    <network id="net_sst">
+        <population id="sstPop" component="SST" size="20"/>
+        <explicitInput target="sstPop[0]" input="baseline_sst0" destination="synapses"/>
+        <explicitInput target="sstPop[1]" input="baseline_sst1" destination="synapses"/>
+        <explicitInput target="sstPop[2]" input="baseline_sst2" destination="synapses"/>
+        <explicitInput target="sstPop[3]" input="baseline_sst3" destination="synapses"/>
+        <explicitInput target="sstPop[4]" input="baseline_sst4" destination="synapses"/>
+        <explicitInput target="sstPop[5]" input="baseline_sst5" destination="synapses"/>
+        <explicitInput target="sstPop[6]" input="baseline_sst6" destination="synapses"/>
+        <explicitInput target="sstPop[7]" input="baseline_sst7" destination="synapses"/>
+        <explicitInput target="sstPop[8]" input="baseline_sst8" destination="synapses"/>
+        <explicitInput target="sstPop[9]" input="baseline_sst9" destination="synapses"/>
+        <explicitInput target="sstPop[10]" input="baseline_sst10" destination="synapses"/>
+        <explicitInput target="sstPop[11]" input="baseline_sst11" destination="synapses"/>
+        <explicitInput target="sstPop[12]" input="baseline_sst12" destination="synapses"/>
+        <explicitInput target="sstPop[13]" input="baseline_sst13" destination="synapses"/>
+        <explicitInput target="sstPop[14]" input="baseline_sst14" destination="synapses"/>
+        <explicitInput target="sstPop[15]" input="baseline_sst15" destination="synapses"/>
+        <explicitInput target="sstPop[16]" input="baseline_sst16" destination="synapses"/>
+        <explicitInput target="sstPop[17]" input="baseline_sst17" destination="synapses"/>
+        <explicitInput target="sstPop[18]" input="baseline_sst18" destination="synapses"/>
+        <explicitInput target="sstPop[19]" input="baseline_sst19" destination="synapses"/>
+    </network>
+</neuroml>

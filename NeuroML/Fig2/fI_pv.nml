@@ -1,0 +1,46 @@
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta5.xsd" id="fI_pv">
+    <silentSynapse id="silent1_pv"/>
+    <pulseGenerator id="baseline_pv0" delay="0ms" duration="200ms" amplitude="90.00 pA"/>
+    <pulseGenerator id="baseline_pv1" delay="0ms" duration="200ms" amplitude="99.00 pA"/>
+    <pulseGenerator id="baseline_pv2" delay="0ms" duration="200ms" amplitude="108.00 pA"/>
+    <pulseGenerator id="baseline_pv3" delay="0ms" duration="200ms" amplitude="117.00 pA"/>
+    <pulseGenerator id="baseline_pv4" delay="0ms" duration="200ms" amplitude="126.00 pA"/>
+    <pulseGenerator id="baseline_pv5" delay="0ms" duration="200ms" amplitude="135.00 pA"/>
+    <pulseGenerator id="baseline_pv6" delay="0ms" duration="200ms" amplitude="144.00 pA"/>
+    <pulseGenerator id="baseline_pv7" delay="0ms" duration="200ms" amplitude="153.00 pA"/>
+    <pulseGenerator id="baseline_pv8" delay="0ms" duration="200ms" amplitude="162.00 pA"/>
+    <pulseGenerator id="baseline_pv9" delay="0ms" duration="200ms" amplitude="171.00 pA"/>
+    <pulseGenerator id="baseline_pv10" delay="0ms" duration="200ms" amplitude="180.00 pA"/>
+    <pulseGenerator id="baseline_pv11" delay="0ms" duration="200ms" amplitude="189.00 pA"/>
+    <pulseGenerator id="baseline_pv12" delay="0ms" duration="200ms" amplitude="198.00 pA"/>
+    <pulseGenerator id="baseline_pv13" delay="0ms" duration="200ms" amplitude="207.00 pA"/>
+    <pulseGenerator id="baseline_pv14" delay="0ms" duration="200ms" amplitude="216.00 pA"/>
+    <pulseGenerator id="baseline_pv15" delay="0ms" duration="200ms" amplitude="225.00 pA"/>
+    <pulseGenerator id="baseline_pv16" delay="0ms" duration="200ms" amplitude="234.00 pA"/>
+    <pulseGenerator id="baseline_pv17" delay="0ms" duration="200ms" amplitude="243.00 pA"/>
+    <pulseGenerator id="baseline_pv18" delay="0ms" duration="200ms" amplitude="252.00 pA"/>
+    <pulseGenerator id="baseline_pv19" delay="0ms" duration="200ms" amplitude="261.00 pA"/>
+    <network id="net_pv">
+        <population id="pvPop" component="PV" size="20"/>
+        <explicitInput target="pvPop[0]" input="baseline_pv0" destination="synapses"/>
+        <explicitInput target="pvPop[1]" input="baseline_pv1" destination="synapses"/>
+        <explicitInput target="pvPop[2]" input="baseline_pv2" destination="synapses"/>
+        <explicitInput target="pvPop[3]" input="baseline_pv3" destination="synapses"/>
+        <explicitInput target="pvPop[4]" input="baseline_pv4" destination="synapses"/>
+        <explicitInput target="pvPop[5]" input="baseline_pv5" destination="synapses"/>
+        <explicitInput target="pvPop[6]" input="baseline_pv6" destination="synapses"/>
+        <explicitInput target="pvPop[7]" input="baseline_pv7" destination="synapses"/>
+        <explicitInput target="pvPop[8]" input="baseline_pv8" destination="synapses"/>
+        <explicitInput target="pvPop[9]" input="baseline_pv9" destination="synapses"/>
+        <explicitInput target="pvPop[10]" input="baseline_pv10" destination="synapses"/>
+        <explicitInput target="pvPop[11]" input="baseline_pv11" destination="synapses"/>
+        <explicitInput target="pvPop[12]" input="baseline_pv12" destination="synapses"/>
+        <explicitInput target="pvPop[13]" input="baseline_pv13" destination="synapses"/>
+        <explicitInput target="pvPop[14]" input="baseline_pv14" destination="synapses"/>
+        <explicitInput target="pvPop[15]" input="baseline_pv15" destination="synapses"/>
+        <explicitInput target="pvPop[16]" input="baseline_pv16" destination="synapses"/>
+        <explicitInput target="pvPop[17]" input="baseline_pv17" destination="synapses"/>
+        <explicitInput target="pvPop[18]" input="baseline_pv18" destination="synapses"/>
+        <explicitInput target="pvPop[19]" input="baseline_pv19" destination="synapses"/>
+    </network>
+</neuroml>
