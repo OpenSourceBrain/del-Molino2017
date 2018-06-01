@@ -3,14 +3,15 @@ import os
 import numpy as np
 import random
 from neuroml import (NeuroMLDocument, Network, Population, ContinuousConnectionInstanceW, ContinuousProjection,
-                     ExplicitInput, SilentSynapse, PulseGenerator)
+                     ExplicitInput, SilentSynapse, PulseGenerator, Property, Location, Instance)
 import neuroml.writers as writers
 from pyneuroml.lems.LEMSSimulation import LEMSSimulation
+random.seed(42)
 
 
 # This script generates a new xml file that describes the connection between the different network population
 
-def generatePopulationLEMS(pops, n_pop, amplitudes, baseline):
+def generatePopulationLEMS(pops, n_pops, amplitudes, baseline):
     def generatePopulationProjection(from_pop, to_pop, n_from_pop, n_to_pop, w_to_from_pop, p_to_from_pop, net):
         connection_count = 0
         projection = ContinuousProjection(id='%s_%s' %(from_pop, to_pop),
@@ -58,18 +59,25 @@ def generatePopulationLEMS(pops, n_pop, amplitudes, baseline):
     net = Network(id='net2')
     nml_doc.networks.append(net)
 
+    coordinates = ['1 0 0', '0 1 0', '1 1 0', '0 0 1']
     # Populate the network with the 4 populations
     for pop_idx, pop in enumerate(pops):
-        pop = Population(id='%sPop' %pop, component=(pops[pop_idx]).upper(), size=n_pop[pop_idx])
+        pop = Population(id='%sPop' %pop, component=(pops[pop_idx]).upper(), size=n_pops[pop_idx])
         net.populations.append(pop)
+        pop.properties.append(Property(tag='color', value='1 0 0'))
+
+        for n_pop in range(n_pops[pop_idx]):
+            inst = Instance(id=n_pop)
+            pop.instances.append(inst)
+            inst.location = Location(x=str(random.random()), y=str(random.random()), z=str(random.random()))
 
     for from_idx, from_pop in enumerate(pops):
         for to_idx, to_pop in enumerate(pops):
-            generatePopulationProjection(pops[from_idx], pops[to_idx], n_pop[from_idx], n_pop[to_idx],
+            generatePopulationProjection(pops[from_idx], pops[to_idx], n_pops[from_idx], n_pops[to_idx],
                                          w_to_from_pops[to_idx, from_idx], p_to_from_pop[to_idx, from_idx], net)
     # Add inputs
     for pop_idx, pop in enumerate(pops):
-        for n_idx in range(n_pop[pop_idx]):
+        for n_idx in range(n_pops[pop_idx]):
             exp_input = ExplicitInput(target='%sPop[%i]' %(pop, n_idx), input='baseline_%s' %pops[pop_idx], destination='synapses')
             net.explicit_inputs.append(exp_input)
 
