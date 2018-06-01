@@ -2,8 +2,6 @@
 import os
 import numpy as np
 import random
-random.seed(42)
-
 from neuroml import (NeuroMLDocument, Network, Population, ContinuousConnectionInstanceW, ContinuousProjection,
                      ExplicitInput, SilentSynapse, PulseGenerator)
 import neuroml.writers as writers
