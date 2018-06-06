@@ -59,17 +59,19 @@ def generatePopulationLEMS(pops, n_pops, amplitudes, baseline):
     net = Network(id='net2')
     nml_doc.networks.append(net)
 
-    coordinates = ['1 0 0', '0 1 0', '1 1 0', '0 0 1']
+    colours = ['0 0 1', '1 0 0', '.5 0 .5', '0 1 0']
     # Populate the network with the 4 populations
     for pop_idx, pop in enumerate(pops):
         pop = Population(id='%sPop' %pop, component=(pops[pop_idx]).upper(), size=n_pops[pop_idx])
         net.populations.append(pop)
-        pop.properties.append(Property(tag='color', value='1 0 0'))
+        pop.properties.append(Property(tag='color', value=colours[pop_idx]))
 
         for n_pop in range(n_pops[pop_idx]):
             inst = Instance(id=n_pop)
             pop.instances.append(inst)
-            inst.location = Location(x=str(random.random()), y=str(random.random()), z=str(random.random()))
+            inst.location = Location(x=str(random.random() * 100),
+                                     y=str(random.random() * 100),
+                                     z=str(random.random() * 100 ))
 
     for from_idx, from_pop in enumerate(pops):
         for to_idx, to_pop in enumerate(pops):
