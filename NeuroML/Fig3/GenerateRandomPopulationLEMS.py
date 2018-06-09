@@ -21,9 +21,11 @@ def generatePopulationLEMS(pops, n_pops, amplitudes, baseline):
         for idx_from_pop in range(n_from_pop):
             for idx_to_pop in range(n_to_pop):
                 if random.random() <= p_to_from_pop:
+                    pre_comp = from_pop.upper()
+                    to_comp = to_pop.upper()
                     connection = ContinuousConnectionInstanceW(id=connection_count,
-                                                               pre_cell='../%sPop[%i]' %(from_pop, idx_from_pop),
-                                                               post_cell='../%sPop[%i]' %(to_pop, idx_to_pop),
+                                                               pre_cell='../%sPop/%i/%s' %(from_pop, idx_from_pop, pre_comp),
+                                                               post_cell='../%sPop/%i/%s' %(to_pop, idx_to_pop, to_comp),
                                                                pre_component='silent1',
                                                                post_component='rs',
                                                                weight=w_to_from_pop /(p_to_from_pop * n_from_pop))
@@ -62,7 +64,7 @@ def generatePopulationLEMS(pops, n_pops, amplitudes, baseline):
     colours = ['0 0 1', '1 0 0', '.5 0 .5', '0 1 0']
     # Populate the network with the 4 populations
     for pop_idx, pop in enumerate(pops):
-        pop = Population(id='%sPop' %pop, component=(pops[pop_idx]).upper(), size=n_pops[pop_idx])
+        pop = Population(id='%sPop' %pop, component=(pops[pop_idx]).upper(), size=n_pops[pop_idx], type='populationList')
         net.populations.append(pop)
         pop.properties.append(Property(tag='color', value=colours[pop_idx]))
 
@@ -80,12 +82,12 @@ def generatePopulationLEMS(pops, n_pops, amplitudes, baseline):
     # Add inputs
     for pop_idx, pop in enumerate(pops):
         for n_idx in range(n_pops[pop_idx]):
-            exp_input = ExplicitInput(target='%sPop[%i]' %(pop, n_idx), input='baseline_%s' %pops[pop_idx], destination='synapses')
+            exp_input = ExplicitInput(target='%sPop/%i/%s' %(pop, n_idx,pop.upper()), input='baseline_%s' %pops[pop_idx], destination='synapses')
             net.explicit_inputs.append(exp_input)
 
             # if vip add modulatory input
             if pop == 'vip':
-                mod_input = ExplicitInput(target='vipPop[%i]' %n_idx, input='modVIP', destination='synapses')
+                mod_input = ExplicitInput(target='vipPop/%i/VIP' %n_idx, input='modVIP', destination='synapses')
                 net.explicit_inputs.append(mod_input)
 
     nml_file = 'RandomPopulationRate_%s_baseline.nml' %baseline
@@ -117,14 +119,14 @@ def generatePopulationSimulationLEMS(n_pops, baseline, pops):
         disp1 = '%s' %pop
         ls.create_display(disp1, '%s' %pop, -1, 12)
         for n_pop in range(n_pops[pop_idx]):
-            ls.add_line_to_display(disp1, '%s%d' % (pop, n_pop)   , '%sPop[%d]/r' % (pop, n_pop),   color=colours[pop_idx])
+            ls.add_line_to_display(disp1, '%s%d' % (pop, n_pop)   , '%sPop/%d/%s/r' % (pop, n_pop,pop.upper()),   color=colours[pop_idx])
 
     for pop_idx, pop in enumerate(pops):
         # Create output file
         of1 = 'of_%s' %pop
         ls.create_output_file(of1, 'Population_%s_%s_baseline.dat' %(pop, baseline) )
         for n_pop in range(n_pops[pop_idx]):
-            ls.add_column_to_output_file(of1, 'r_%s_%d' % (pop, n_pop), '%sPop[%d]/r' % (pop, n_pop))
+            ls.add_column_to_output_file(of1, 'r_%s_%d' % (pop, n_pop), '%sPop/%d/%s/r' % (pop, n_pop,pop.upper()))
 
     save_path = os.path.join(sim_id)
     ls.save_to_file(file_name=save_path)
