@@ -61,6 +61,7 @@ def generatefISimulationLEMS(population, units):
     # Add additional LEMS file
     # Add Rate Base Components
     ls.include_lems_file('../RateBased.xml', include_included=True)
+    ls.include_lems_file('../CellDefinition.xml', include_included=True)
     # Add specifications for these Rate Based Components
     ls.include_lems_file('../RateBasedSpecifications_high_baseline.xml', include_included=True)
     # Add the network definition

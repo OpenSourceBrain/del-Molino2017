@@ -6,7 +6,7 @@ n_units = 20
 baselines = ['low', 'high']
 max_amplitude = [220, 270, 165, 165]
 min_amplitude = [60, 90, 45, 45]
-populations = ['e', 'pv', 'sst', 'vip']
+populations = ['exc', 'pv', 'sst', 'vip']
 colours = ['blue', 'red', 'darkorchid', 'green']
 
 

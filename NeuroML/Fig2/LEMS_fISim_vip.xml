@@ -2,7 +2,7 @@
     
     <!-- 
 
-        This LEMS file has been automatically generated using PyNeuroML v0.3.11 (libNeuroML v0.2.39)
+        This LEMS file has been automatically generated using PyNeuroML v0.3.12 (libNeuroML v0.2.44)
 
      -->
     
@@ -15,6 +15,7 @@
     <Include file="Simulation.xml"/>
     
     <Include file="../RateBased.xml"/>
+    <Include file="../CellDefinition.xml"/>
     <Include file="../RateBasedSpecifications_high_baseline.xml"/>
     <Include file="fI_vip.nml"/>
    
