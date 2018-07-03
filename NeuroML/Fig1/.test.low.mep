@@ -1,0 +1,9 @@
+system: Test Slow
+
+experiments:
+    pv:
+        expected:
+            spike times: [53.2]
+    vip:
+        expected:
+            spike times: [52.2]
