@@ -16,3 +16,9 @@ notebooks/.ipynb_checkpoints
 /NeuroML/delMolinoEtAl.json
 /NeuroML/delMolinoEtAl.net.nml
 /NeuroML/temp
+/NeuroML/Fig3/*.pov
+/NeuroML/Fig3/*nml*.png
+/NeuroML/Fig1/*.mod
+/NeuroML/Fig1/*_nrn.py
+/NeuroML/Fig1/x86_64
+/NeuroML/report.SimdelMolinoEtAl.txt
