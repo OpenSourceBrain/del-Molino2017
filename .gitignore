@@ -22,3 +22,6 @@ notebooks/.ipynb_checkpoints
 /NeuroML/Fig1/*_nrn.py
 /NeuroML/Fig1/x86_64
 /NeuroML/report.SimdelMolinoEtAl.txt
+/NeuroML/Fig2/*.mod
+/NeuroML/Fig2/x86_64
+/NeuroML/Fig2/*_nrn.py
