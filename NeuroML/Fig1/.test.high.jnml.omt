@@ -13,17 +13,17 @@ experiments:
           scaling: [1000, 1]
         spike detection: 
           method: threshold
-          threshold: 39.8
+          threshold: 56.2
         tolerance: 0.0
-  vip:
+  sst:
     observables:
       spike times:
         file: 
           path: rates_high.dat
-          columns: [0,4]
+          columns: [0,3]
           scaling: [1000, 1]
         spike detection: 
           method: threshold
-          threshold: 56.2
+          threshold: 39.8
         tolerance: 0.00
 

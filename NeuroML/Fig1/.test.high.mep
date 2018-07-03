@@ -3,7 +3,7 @@ system: Test high
 experiments:
     pv:
         expected:
-            spike times: [53.2]
-    vip:
+            spike times: [52.6, 65.5]
+    sst:
         expected:
-            spike times: [52.2]
+            spike times: [60.400000000000006, 72.0]
