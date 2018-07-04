@@ -25,3 +25,6 @@ notebooks/.ipynb_checkpoints
 /NeuroML/Fig2/*.mod
 /NeuroML/Fig2/x86_64
 /NeuroML/Fig2/*_nrn.py
+/NeuroML/Fig3/*.mod
+/NeuroML/Fig3/x86_64
+/NeuroML/Fig3/*_nrn.py

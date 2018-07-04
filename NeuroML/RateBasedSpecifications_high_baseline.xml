@@ -5,6 +5,6 @@
     <abbottChance2005Cell id="SST" Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="5nS"    tau="16ms"  tau_r="2ms" r0="30Hz"/>
     <abbottChance2005Cell id="VIP" Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="5nS"    tau="16ms"  tau_r="2ms" r0="20Hz"/>
 
-    <rateSynapse id="rs" />
+    <rateSynapsePicoAmp id="rs" />
 
 </Lems>

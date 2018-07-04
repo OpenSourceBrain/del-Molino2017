@@ -4,8 +4,10 @@ from GenerateRandomPopulationLEMS import generatePopulationLEMS, generatePopulat
 # n_pop = [800, 100, 50, 50]
 # test values
 n_pop = [200, 25, 12, 12]
+#n_pop = [4,4,4,4]
+#n_pop = [1,1,1,1]
 # Iterate over the different combination of populations and create a random connectivity between the units
-pops = ['e', 'pv', 'sst', 'vip']
+pops = ['exc', 'pv', 'sst', 'vip']
 amplitudes = {
               'high':  ['147.2512 pA', '386.7281 pA', '40.2657 pA', '98.4368 pA'],
               'low': ['115.03 pA', '233.66 pA', '94.31 pA', '89.91 pA']

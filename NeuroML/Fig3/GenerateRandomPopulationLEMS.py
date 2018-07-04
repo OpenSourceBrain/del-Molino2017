@@ -17,7 +17,6 @@ def generatePopulationLEMS(pops, n_pops, amplitudes, baseline):
         projection = ContinuousProjection(id='%s_%s' %(from_pop, to_pop),
                                           presynaptic_population='%sPop' %from_pop,
                                           postsynaptic_population='%sPop' %to_pop)
-        net.continuous_projections.append(projection)
         for idx_from_pop in range(n_from_pop):
             for idx_to_pop in range(n_to_pop):
                 if random.random() <= p_to_from_pop:
@@ -31,17 +30,25 @@ def generatePopulationLEMS(pops, n_pops, amplitudes, baseline):
                                                                weight=w_to_from_pop /(p_to_from_pop * n_from_pop))
                     projection.continuous_connection_instance_ws.append(connection)
                     connection_count += 1
+        if connection_count>0:
+            net.continuous_projections.append(projection)
 
 
     # Connection probabilities for each pop in the population
-    w_to_from_pops = np.array([[2.42, -.033, -0.80,     0],
-                               [2.97, -3.45,  2.13,     0],
+    w_to_from_pops = np.array([[2.42, -.33, -0.80,     0],
+                               [2.97, -3.45,  -2.13,     0],
                                [4.64,     0,     0, -2.79],
                                [0.71,     0, -0.16,     0]])
+                               
     p_to_from_pop = np.array([[0.02, 1,    1,     0],
                               [0.01, 1, 0.85,     0],
                               [0.01, 0,    0,  0.55],
                               [0.01, 0,  0.5,     0]])
+    '''       
+    p_to_from_pop = np.array([[1, 1,    1,     0],
+                              [1, 1, 1,     0],
+                              [1, 0,    0,  1],
+                              [1, 0,  1,     0]])'''
 
     nml_doc = NeuroMLDocument(id='RandomPopulation')
 
@@ -110,6 +117,7 @@ def generatePopulationSimulationLEMS(n_pops, baseline, pops):
     # Add additional LEMS files
     # Add Rate Base Components
     ls.include_lems_file('../RateBased.xml', include_included=True)
+    ls.include_lems_file('../CellDefinition.xml', include_included=True)
     # Add specifications for the Rate Base Components
     ls.include_lems_file('../RateBasedSpecifications_%s_baseline.xml' %baseline, include_included=True)
     # Add the network definition
