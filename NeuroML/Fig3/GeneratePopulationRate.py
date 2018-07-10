@@ -3,9 +3,8 @@ from GenerateRandomPopulationLEMS import generatePopulationLEMS, generatePopulat
 # Size of the network for e, pv, sst, vip, respectively
 # n_pop = [800, 100, 50, 50]
 # test values
-n_pop = [200, 25, 12, 12]
-#n_pop = [4,4,4,4]
-#n_pop = [1,1,1,1]
+n_pop = [800, 100, 50, 50]
+# n_pop = [200, 25, 12, 12]
 # Iterate over the different combination of populations and create a random connectivity between the units
 pops = ['exc', 'pv', 'sst', 'vip']
 amplitudes = {
