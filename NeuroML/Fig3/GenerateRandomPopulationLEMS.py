@@ -39,16 +39,15 @@ def generatePopulationLEMS(pops, n_pops, amplitudes, baseline):
                                [2.97, -3.45,  -2.13,     0],
                                [4.64,     0,     0, -2.79],
                                [0.71,     0, -0.16,     0]])
-                               
+
+    # p_to_from_pop = np.array([[1, 1,    1,     0],
+    #                           [1, 1, 1,     0],
+    #                           [1, 0,    0,  1],
+    #                           [1, 0,  1,     0]])
     p_to_from_pop = np.array([[0.02, 1,    1,     0],
                               [0.01, 1, 0.85,     0],
                               [0.01, 0,    0,  0.55],
                               [0.01, 0,  0.5,     0]])
-    '''       
-    p_to_from_pop = np.array([[1, 1,    1,     0],
-                              [1, 1, 1,     0],
-                              [1, 0,    0,  1],
-                              [1, 0,  1,     0]])'''
 
     nml_doc = NeuroMLDocument(id='RandomPopulation')
 
