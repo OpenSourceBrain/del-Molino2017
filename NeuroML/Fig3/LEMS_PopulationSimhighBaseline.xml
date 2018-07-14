@@ -19,9 +19,9 @@
     <Include file="../RateBasedSpecifications_high_baseline.xml"/>
     <Include file="RandomPopulationRate_high_baseline.nml"/>
    
-    <Simulation id="LEMS_PopulationSimhighBaseline.xml" length="200ms" step="0.1ms" target="net2" seed="12345">  <!-- Note seed: ensures same random numbers used every run -->
+    <Simulation id="LEMS_PopulationSimhighBaseline.xml" length="300ms" step="0.1ms" target="net2" seed="12345">  <!-- Note seed: ensures same random numbers used every run -->
         
-        <Display id="exc" title="exc" timeScale="1ms" xmin="-20.0" xmax="220.00000000000003" ymin="-1" ymax="12">
+        <Display id="exc" title="exc" timeScale="1ms" xmin="-30.0" xmax="330.0" ymin="-1" ymax="12">
             <Line id="exc0" quantity="excPop/0/EXC/r" scale="1" color="#0000ff" timeScale="1ms"/>
             <Line id="exc1" quantity="excPop/1/EXC/r" scale="1" color="#0000ff" timeScale="1ms"/>
             <Line id="exc2" quantity="excPop/2/EXC/r" scale="1" color="#0000ff" timeScale="1ms"/>
@@ -824,7 +824,7 @@
             <Line id="exc799" quantity="excPop/799/EXC/r" scale="1" color="#0000ff" timeScale="1ms"/>
         </Display>
         
-        <Display id="pv" title="pv" timeScale="1ms" xmin="-20.0" xmax="220.00000000000003" ymin="-1" ymax="12">
+        <Display id="pv" title="pv" timeScale="1ms" xmin="-30.0" xmax="330.0" ymin="-1" ymax="12">
             <Line id="pv0" quantity="pvPop/0/PV/r" scale="1" color="#ff0000" timeScale="1ms"/>
             <Line id="pv1" quantity="pvPop/1/PV/r" scale="1" color="#ff0000" timeScale="1ms"/>
             <Line id="pv2" quantity="pvPop/2/PV/r" scale="1" color="#ff0000" timeScale="1ms"/>
@@ -927,7 +927,7 @@
             <Line id="pv99" quantity="pvPop/99/PV/r" scale="1" color="#ff0000" timeScale="1ms"/>
         </Display>
         
-        <Display id="sst" title="sst" timeScale="1ms" xmin="-20.0" xmax="220.00000000000003" ymin="-1" ymax="12">
+        <Display id="sst" title="sst" timeScale="1ms" xmin="-30.0" xmax="330.0" ymin="-1" ymax="12">
             <Line id="sst0" quantity="sstPop/0/SST/r" scale="1" color="#DDA0DD" timeScale="1ms"/>
             <Line id="sst1" quantity="sstPop/1/SST/r" scale="1" color="#DDA0DD" timeScale="1ms"/>
             <Line id="sst2" quantity="sstPop/2/SST/r" scale="1" color="#DDA0DD" timeScale="1ms"/>
@@ -980,7 +980,7 @@
             <Line id="sst49" quantity="sstPop/49/SST/r" scale="1" color="#DDA0DD" timeScale="1ms"/>
         </Display>
         
-        <Display id="vip" title="vip" timeScale="1ms" xmin="-20.0" xmax="220.00000000000003" ymin="-1" ymax="12">
+        <Display id="vip" title="vip" timeScale="1ms" xmin="-30.0" xmax="330.0" ymin="-1" ymax="12">
             <Line id="vip0" quantity="vipPop/0/VIP/r" scale="1" color="#00ff00" timeScale="1ms"/>
             <Line id="vip1" quantity="vipPop/1/VIP/r" scale="1" color="#00ff00" timeScale="1ms"/>
             <Line id="vip2" quantity="vipPop/2/VIP/r" scale="1" color="#00ff00" timeScale="1ms"/>
