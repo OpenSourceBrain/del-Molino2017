@@ -11,7 +11,7 @@ random.seed(42)
 
 # This script generates a new xml file that describes the connection between the different network population
 
-def generatePopulationLEMS(pops, n_pops, amplitudes, baseline):
+def generatePopulationLEMS(pops, n_pops, amplitudes, baseline, sim_length, delay):
     def generatePopulationProjection(from_pop, to_pop, n_from_pop, n_to_pop, w_to_from_pop, p_to_from_pop, net):
         connection_count = 0
         projection = ContinuousProjection(id='%s_%s' %(from_pop, to_pop),
@@ -56,11 +56,16 @@ def generatePopulationLEMS(pops, n_pops, amplitudes, baseline):
     nml_doc.silent_synapses.append(silent_syn)
 
     for pop_idx, pop in enumerate(pops):
-        pulse = PulseGenerator(id='baseline_%s' %pop, delay='0ms', duration='300ms', amplitude=amplitudes[pop_idx])
+        pulse = PulseGenerator(id='baseline_%s' %pop, delay='0ms',
+                               duration=str(sim_length) + 'ms',
+                               amplitude=amplitudes[pop_idx])
         nml_doc.pulse_generators.append(pulse)
 
         if pop == 'vip':
-            pulse_mod = PulseGenerator(id='modVIP', delay='100ms', duration='200ms', amplitude='10 pA')
+            # time point when additional current is induced
+            pulse_mod = PulseGenerator(id='modVIP', delay=str(delay) + 'ms',
+                                       duration= str(sim_length - delay) + 'ms',
+                                       amplitude='10 pA')
             nml_doc.pulse_generators.append(pulse_mod)
 
     # Create the network and add the 4 different populations
@@ -105,12 +110,11 @@ def generatePopulationLEMS(pops, n_pops, amplitudes, baseline):
     validate_neuroml2(nml_file)
 
 
-def generatePopulationSimulationLEMS(n_pops, baseline, pops):
+def generatePopulationSimulationLEMS(n_pops, baseline, pops, sim_length):
     # Create LEMS file
     sim_id = 'LEMS_PopulationSim%sBaseline.xml' %baseline
-    sim_t = 300 # ms
     dt = 0.1
-    ls = LEMSSimulation(sim_id, sim_t, dt, 'net2')
+    ls = LEMSSimulation(sim_id, sim_length, dt, 'net2')
     colours = ['#0000ff', '#ff0000', '#DDA0DD', '#00ff00']
 
     # Add additional LEMS files

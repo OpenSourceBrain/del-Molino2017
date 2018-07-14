@@ -12,9 +12,13 @@ amplitudes = {
               'low': ['115.03 pA', '233.66 pA', '94.31 pA', '89.91 pA']
              }
 baselines = ['high', 'low']
-
+# duration of the simulation
+sim_length = 200 #ms
+# time delay until the modulatory current is applied
+delay = 50 #ms
 # todo: fill in the correct arguments and make it run for the e population
 for baseline in baselines:
-    generatePopulationLEMS(pops, n_pop, amplitudes[baseline], baseline)
-    generatePopulationSimulationLEMS(n_pop, baseline, pops)
+    generatePopulationLEMS(pops, n_pop, amplitudes[baseline], baseline,
+                           sim_length, delay)
+    generatePopulationSimulationLEMS(n_pop, baseline, pops, sim_length)
 
