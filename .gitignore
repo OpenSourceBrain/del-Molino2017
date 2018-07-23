@@ -28,3 +28,4 @@ notebooks/.ipynb_checkpoints
 /NeuroML/Fig3/*.mod
 /NeuroML/Fig3/x86_64
 /NeuroML/Fig3/*_nrn.py
+/NeuroML/Fig1/quick.py
