@@ -1,0 +1,29 @@
+# Script for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation
+ 
+target: LEMS_RateBased_low_baseline.xml
+engine: jNeuroML
+mep: .test.low.mep
+experiments:
+  pv:
+    observables:
+      spike times:
+        file: 
+          path: rates_low.dat
+          columns: [0,2]
+          scaling: [1000, 1]
+        spike detection: 
+          method: threshold
+          threshold: 10.5
+        tolerance: 0.0
+  vip:
+    observables:
+      spike times:
+        file: 
+          path: rates_low.dat
+          columns: [0,4]
+          scaling: [1000, 1]
+        spike detection: 
+          method: threshold
+          threshold: 5
+        tolerance: 0.00
+

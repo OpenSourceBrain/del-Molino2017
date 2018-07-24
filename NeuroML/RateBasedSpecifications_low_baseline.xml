@@ -1,9 +1,10 @@
 <Lems>
-    <rateCell id="E"   Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="6.25nS" tau="28.8ms" tau_r="2ms" r0="1Hz"/>
-    <rateCell id="PV"  Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="10nS"   tau="8ms"  tau_r="2ms" r0="10Hz"/>
-    <rateCell id="SST" Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="5nS"    tau="16ms" tau_r="2ms" r0="3Hz"/>
-    <rateCell id="VIP" Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="5nS"    tau="16ms" tau_r="2ms" r0="2Hz"/>
+    
+    <abbottChance2005Cell id="EXC"   Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="6.25nS" tau="28.8ms" tau_r="2ms" r0="1Hz"/>
+    <abbottChance2005Cell id="PV"  Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="10nS"   tau="8ms"  tau_r="2ms" r0="10Hz"/>
+    <abbottChance2005Cell id="SST" Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="5nS"    tau="16ms" tau_r="2ms" r0="3Hz"/>
+    <abbottChance2005Cell id="VIP" Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="5nS"    tau="16ms" tau_r="2ms" r0="2Hz"/>
 
-    <rateSynapse id="rs" />
+    <rateSynapsePicoAmp id="rs" />
 
 </Lems>

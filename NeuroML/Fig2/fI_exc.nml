@@ -1,0 +1,46 @@
+<neuroml xmlns="http://www.neuroml.org/schema/neuroml2"  xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.neuroml.org/schema/neuroml2 https://raw.github.com/NeuroML/NeuroML2/development/Schemas/NeuroML2/NeuroML_v2beta5.xsd" id="fI_exc">
+    <silentSynapse id="silent1_exc"/>
+    <pulseGenerator id="baseline_exc0" delay="0ms" duration="200ms" amplitude="60.00 pA"/>
+    <pulseGenerator id="baseline_exc1" delay="0ms" duration="200ms" amplitude="68.00 pA"/>
+    <pulseGenerator id="baseline_exc2" delay="0ms" duration="200ms" amplitude="76.00 pA"/>
+    <pulseGenerator id="baseline_exc3" delay="0ms" duration="200ms" amplitude="84.00 pA"/>
+    <pulseGenerator id="baseline_exc4" delay="0ms" duration="200ms" amplitude="92.00 pA"/>
+    <pulseGenerator id="baseline_exc5" delay="0ms" duration="200ms" amplitude="100.00 pA"/>
+    <pulseGenerator id="baseline_exc6" delay="0ms" duration="200ms" amplitude="108.00 pA"/>
+    <pulseGenerator id="baseline_exc7" delay="0ms" duration="200ms" amplitude="116.00 pA"/>
+    <pulseGenerator id="baseline_exc8" delay="0ms" duration="200ms" amplitude="124.00 pA"/>
+    <pulseGenerator id="baseline_exc9" delay="0ms" duration="200ms" amplitude="132.00 pA"/>
+    <pulseGenerator id="baseline_exc10" delay="0ms" duration="200ms" amplitude="140.00 pA"/>
+    <pulseGenerator id="baseline_exc11" delay="0ms" duration="200ms" amplitude="148.00 pA"/>
+    <pulseGenerator id="baseline_exc12" delay="0ms" duration="200ms" amplitude="156.00 pA"/>
+    <pulseGenerator id="baseline_exc13" delay="0ms" duration="200ms" amplitude="164.00 pA"/>
+    <pulseGenerator id="baseline_exc14" delay="0ms" duration="200ms" amplitude="172.00 pA"/>
+    <pulseGenerator id="baseline_exc15" delay="0ms" duration="200ms" amplitude="180.00 pA"/>
+    <pulseGenerator id="baseline_exc16" delay="0ms" duration="200ms" amplitude="188.00 pA"/>
+    <pulseGenerator id="baseline_exc17" delay="0ms" duration="200ms" amplitude="196.00 pA"/>
+    <pulseGenerator id="baseline_exc18" delay="0ms" duration="200ms" amplitude="204.00 pA"/>
+    <pulseGenerator id="baseline_exc19" delay="0ms" duration="200ms" amplitude="212.00 pA"/>
+    <network id="net_exc">
+        <population id="excPop" component="EXC" size="20"/>
+        <explicitInput target="excPop[0]" input="baseline_exc0" destination="synapses"/>
+        <explicitInput target="excPop[1]" input="baseline_exc1" destination="synapses"/>
+        <explicitInput target="excPop[2]" input="baseline_exc2" destination="synapses"/>
+        <explicitInput target="excPop[3]" input="baseline_exc3" destination="synapses"/>
+        <explicitInput target="excPop[4]" input="baseline_exc4" destination="synapses"/>
+        <explicitInput target="excPop[5]" input="baseline_exc5" destination="synapses"/>
+        <explicitInput target="excPop[6]" input="baseline_exc6" destination="synapses"/>
+        <explicitInput target="excPop[7]" input="baseline_exc7" destination="synapses"/>
+        <explicitInput target="excPop[8]" input="baseline_exc8" destination="synapses"/>
+        <explicitInput target="excPop[9]" input="baseline_exc9" destination="synapses"/>
+        <explicitInput target="excPop[10]" input="baseline_exc10" destination="synapses"/>
+        <explicitInput target="excPop[11]" input="baseline_exc11" destination="synapses"/>
+        <explicitInput target="excPop[12]" input="baseline_exc12" destination="synapses"/>
+        <explicitInput target="excPop[13]" input="baseline_exc13" destination="synapses"/>
+        <explicitInput target="excPop[14]" input="baseline_exc14" destination="synapses"/>
+        <explicitInput target="excPop[15]" input="baseline_exc15" destination="synapses"/>
+        <explicitInput target="excPop[16]" input="baseline_exc16" destination="synapses"/>
+        <explicitInput target="excPop[17]" input="baseline_exc17" destination="synapses"/>
+        <explicitInput target="excPop[18]" input="baseline_exc18" destination="synapses"/>
+        <explicitInput target="excPop[19]" input="baseline_exc19" destination="synapses"/>
+    </network>
+</neuroml>

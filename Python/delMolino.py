@@ -2,6 +2,7 @@ import matplotlib
 matplotlib.use('TkAgg')
 import matplotlib.pyplot as plt
 import numpy as np
+import sys
 
 
 def calculate_phi(Vss, Vth, Vr):
@@ -68,13 +69,13 @@ timeLine = np.arange(0, T, dt)
 
 # Plot rate over time (selected range)
 timeLine = timeLine - T/4 + 5
-plt.figure()
+fig = plt.figure()
+fig.canvas.set_window_title("Low baseline activity: rates")
 plt.plot(timeLine, sol_low[0, :], 'b')
 plt.plot(timeLine, sol_low[1, :], 'r')
 plt.plot(timeLine, sol_low[2, :], 'm')
 plt.plot(timeLine, sol_low[3, :], 'g')
 plt.xlim(xmin=0, xmax=20)
-plt.show()
 
 if debug:
     # Plot membrane
@@ -83,7 +84,6 @@ if debug:
     plt.plot(timeLine, vt_low[1, :], 'r')
     plt.plot(timeLine, vt_low[2, :], 'm')
     plt.plot(timeLine, vt_low[3, :], 'g')
-    plt.show()
 
     # Plot iSyn over time
     plt.figure()
@@ -91,7 +91,6 @@ if debug:
     plt.plot(timeLine, iSynt_low[1, :], 'r')
     plt.plot(timeLine, iSynt_low[2, :], 'm')
     plt.plot(timeLine, iSynt_low[3, :], 'g')
-    plt.show()
 
 # Plot f-I Curve
 V_Vec = np.arange(Vr, Vr_fI, 0.15)
@@ -100,6 +99,8 @@ for idx, VV in enumerate(V_Vec):
     VV_pop = np.ones((4, 1)) * VV
     rr[idx, :] = calculate_phi(VV_pop, Vth, Vr).ravel()
 
+fig = plt.figure()
+fig.canvas.set_window_title("Low baseline activity: tuning curves")
 plt.plot(V_Vec, rr[:, 0], label='ePop', color='blue')
 plt.plot(V_Vec, rr[:, 1], label='pvPop', color='red')
 plt.plot(V_Vec, rr[:, 2], label='sstPop', color='darkorchid')
@@ -116,7 +117,6 @@ plt.xlabel('Voltage (ms)')
 plt.ylabel('r (Hz)')
 plt.ylim(ymin=0, ymax=60)
 plt.legend(loc=(1.04,0))
-plt.show()
 
 #----------------------------------------------------------------------------------------------------------------------
 #                                           High Baseline Activity
@@ -133,13 +133,13 @@ timeLine = np.arange(0, T, dt)
 # Plot rate over time (selected range)
 timeLine = timeLine - T/4 + 5
 
-plt.figure()
+fig = plt.figure()
+fig.canvas.set_window_title("High baseline activity: rates")
 plt.plot(timeLine, sol_high[0, :], 'b')
 plt.plot(timeLine, sol_high[1, :], 'r')
 plt.plot(timeLine, sol_high[2, :], 'm')
 plt.plot(timeLine, sol_high[3, :], 'g')
 plt.xlim(xmin=0, xmax=20)
-plt.show()
 
 if debug:
     # Plot membrane voltage over time
@@ -148,7 +148,6 @@ if debug:
     plt.plot(timeLine, vt_high[1, :], 'r')
     plt.plot(timeLine, vt_high[2, :], 'm')
     plt.plot(timeLine, vt_high[3, :], 'g')
-    plt.show()
 
     # Plot iSyn over time
     plt.figure()
@@ -156,11 +155,11 @@ if debug:
     plt.plot(timeLine, iSynt_high[1, :], 'r')
     plt.plot(timeLine, iSynt_high[2, :], 'm')
     plt.plot(timeLine, iSynt_high[3, :], 'g')
-    plt.show()
 
 # Plot f-I Curve
 # Use the data for the low baseline activity population
-plt.figure()
+fig = plt.figure()
+fig.canvas.set_window_title("High baseline activity: tuning curves")
 plt.plot(V_Vec, rr[:, 0], label='ePop', color='blue')
 plt.plot(V_Vec, rr[:, 1], label='pvPop', color='red')
 plt.plot(V_Vec, rr[:, 2], label='sstPop', color='darkorchid')
@@ -177,5 +176,8 @@ plt.xlabel('Voltage (ms)')
 plt.ylabel('r (Hz)')
 plt.ylim(ymin=0, ymax=60)
 plt.legend(loc=(1.04,0))
-plt.show()
-print('done')
+
+if not '-nogui' in sys.argv:
+    plt.show()
+    
+print('Done')

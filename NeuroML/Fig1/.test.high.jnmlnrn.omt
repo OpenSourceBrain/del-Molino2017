@@ -1,0 +1,29 @@
+# Script for running automated tests on OSB using Travis-CI, see https://github.com/OpenSourceBrain/osb-model-validation
+ 
+target: LEMS_RateBased_high_baseline.xml
+engine: jNeuroML_NEURON
+mep: .test.high.mep
+experiments:
+  pv:
+    observables:
+      spike times:
+        file: 
+          path: rates_high.dat
+          columns: [0,2]
+          scaling: [1000, 1]
+        spike detection: 
+          method: threshold
+          threshold: 56.2
+        tolerance: 0.0019011406844105382
+  sst:
+    observables:
+      spike times:
+        file: 
+          path: rates_high.dat
+          columns: [0,3]
+          scaling: [1000, 1]
+        spike detection: 
+          method: threshold
+          threshold: 39.8
+        tolerance: 0.0049668874172186135
+
