@@ -2,6 +2,7 @@ from GenerateRandomPopulationLEMS import generatePopulationLEMS, generatePopulat
 
 # Size of the network for e, pv, sst, vip, respectively
 n_pop = [800, 100, 50, 50]
+# n_pop = [80, 10, 5, 5]
 # n_pop = [1, 1, 1, 1]
 # test values
 # n_pop = [200, 25, 12, 12]

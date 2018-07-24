@@ -2,8 +2,9 @@
 import os
 import numpy as np
 import random
+import math
 from neuroml import (NeuroMLDocument, Network, Population, ContinuousConnectionInstanceW, ContinuousProjection,
-                     ExplicitInput, SilentSynapse, PulseGenerator, Property, Location, Instance)
+                     ExplicitInput, SilentSynapse, PulseGenerator, Property, Location, Instance, InputList, Input)
 import neuroml.writers as writers
 from pyneuroml.lems.LEMSSimulation import LEMSSimulation
 random.seed(42)
@@ -73,18 +74,26 @@ def generatePopulationLEMS(pops, n_pops, amplitudes, baseline, sim_length, delay
     nml_doc.networks.append(net)
 
     colours = ['0 0 1', '1 0 0', '.5 0 .5', '0 1 0']
+    centres = [(0,0,0),(-1200, 0, 0),(-800, 800, 0),(0,1200,0)]
+    radii = [800,200,200,200]
     # Populate the network with the 4 populations
     for pop_idx, pop in enumerate(pops):
         pop = Population(id='%sPop' %pop, component=(pops[pop_idx]).upper(), size=n_pops[pop_idx], type='populationList')
         net.populations.append(pop)
         pop.properties.append(Property(tag='color', value=colours[pop_idx]))
+        pop.properties.append(Property(tag='radius', value=10))
 
         for n_pop in range(n_pops[pop_idx]):
             inst = Instance(id=n_pop)
             pop.instances.append(inst)
-            inst.location = Location(x=str(random.random() * 100),
-                                     y=str(random.random() * 100),
-                                     z=str(random.random() * 100 ))
+            x,y,z = centres[pop_idx]
+            r = (random.random() * radii[pop_idx]**3) ** (1. / 3)
+            theta = random.random() * math.pi
+            phi = random.random() * math.pi * 2
+            
+            inst.location = Location(x=str(x+r*math.sin(theta)*math.cos(phi)),
+                                     y=str(y+r*math.sin(theta)*math.sin(phi)),
+                                     z=str(z+r*math.cos(theta)))
 
     for from_idx, from_pop in enumerate(pops):
         for to_idx, to_pop in enumerate(pops):
@@ -92,14 +101,32 @@ def generatePopulationLEMS(pops, n_pops, amplitudes, baseline, sim_length, delay
                                          w_to_from_pops[to_idx, from_idx], p_to_from_pop[to_idx, from_idx], net)
     # Add inputs
     for pop_idx, pop in enumerate(pops):
+        
+        input_list = InputList(id='baseline_%s'%pop,
+                             component='baseline_%s' %pops[pop_idx],
+                             populations='%sPop'%pop)
+        net.input_lists.append(input_list)
+        
+        if pop == 'vip':
+            input_list_mod = InputList(id='modulation_%s'%pop,
+                                 component='modVIP',
+                                 populations='%sPop'%pop)
+            net.input_lists.append(input_list_mod)
+        
+                             
         for n_idx in range(n_pops[pop_idx]):
-            exp_input = ExplicitInput(target='%sPop/%i/%s' %(pop, n_idx,pop.upper()), input='baseline_%s' %pops[pop_idx], destination='synapses')
-            net.explicit_inputs.append(exp_input)
+            input = Input(id=n_idx,
+                          target='../%sPop/%i/%s' %(pop, n_idx, pop.upper()), 
+                          destination='synapses')
+            input_list.input.append(input)
 
             # if vip add modulatory input
             if pop == 'vip':
-                mod_input = ExplicitInput(target='vipPop/%i/VIP' %n_idx, input='modVIP', destination='synapses')
-                net.explicit_inputs.append(mod_input)
+
+                mod_input = Input(id=n_idx,
+                              target='../vipPop/%i/VIP'%n_idx, 
+                              destination='synapses')
+                input_list_mod.input.append(mod_input)
 
     nml_file = 'RandomPopulationRate_%s_baseline.nml' %baseline
     writers.NeuroMLWriter.write(nml_doc, nml_file)

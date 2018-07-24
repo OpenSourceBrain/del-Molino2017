@@ -29,3 +29,6 @@ notebooks/.ipynb_checkpoints
 /NeuroML/Fig3/x86_64
 /NeuroML/Fig3/*_nrn.py
 /NeuroML/Fig1/quick.py
+/NeuroML/Fig3/net2.gv*
+/NeuroML/Fig3/RandomPopulationRate_low_baseline.nml_movie.ini
+/NeuroML/Fig3/RandomPopulationRate_low_baseline.png
