@@ -5,7 +5,9 @@ in cortical circuits with three interneuron types. [Elife, 6,
 e29742](https://cdn.elifesciences.org/articles/29742/elife-29742-v2.pdf).
 
 ## The model
-![](https://github.com/OpenSourceBrain/del-Molino2017/blob/master/NeuroML/Fig1/Fig1a.png)
+Microcircuit Connection | Network
+:----------------------:| :----------------:
+![](https://github.com/OpenSourceBrain/del-Molino2017/blob/master/NeuroML/Fig1/Fig1a.png) |
 ![](https://github.com/OpenSourceBrain/del-Molino2017/blob/development/NeuroML/Fig3/RandomPopulationRate_high_baseline.nml36.png)
 The model simulates the dynamics of Pyramidal cells (E)
 with three interneurons types (parvalbumin (PV), somatostatin (SST) and
