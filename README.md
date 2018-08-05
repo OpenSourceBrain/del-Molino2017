@@ -23,4 +23,5 @@ trigger both a positive and a negative response.
 <!-- activity. -->
 <!-- More details of how these plots were obtained can be found -->
 A reproduction of the main findings of the paper using the NeuroML code can be
-found [here](https://github.com/OpenSourceBrain/del-Molino2017/blob/master/notebooks/Figures.ipynb).
+found
+[here](https://github.com/OpenSourceBrain/del-Molino2017/blob/development/notebooks/delMolino2017.ipynb).
