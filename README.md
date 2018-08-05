@@ -4,9 +4,10 @@ F., & Wang, X. J. (2017). Paradoxical response reversal of top-down modulation
 in cortical circuits with three interneuron types. [Elife, 6,
 e29742](https://cdn.elifesciences.org/articles/29742/elife-29742-v2.pdf).
 
-![Illustration of the
-model](https://github.com/OpenSourceBrain/del-Molino2017/blob/master/NeuroML/Fig1/Fig1a.png)
-As illustrated above, the model simulates the dynamics of Pyramidal cells (E)
+## The model
+![](https://github.com/OpenSourceBrain/del-Molino2017/blob/master/NeuroML/Fig1/Fig1a.png)
+
+The model simulates the dynamics of Pyramidal cells (E)
 with three interneurons types (parvalbumin (PV), somatostatin (SST) and
 vasoactive intestinal peptide (VIP)). With this model the authors provide
 answers to two conunterintuive phenoma: (I) the external activation of a
