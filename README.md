@@ -13,7 +13,7 @@ e29742](https://cdn.elifesciences.org/articles/29742/elife-29742-v2.pdf).
 The model simulates the dynamics of Pyramidal cells (E)
 with three interneurons types (parvalbumin (PV), somatostatin (SST) and
 vasoactive intestinal peptide (VIP)). With this model the authors provide
-answers to two conunterintuive phenoma: (I) the external activation of a
+answers to two counterintuitive phenomena: (I) the external activation of a
 population that inhibits a second population can trigger a positive response in
 the latter. (II) Depending on the sensory input a top-down modulation can
 trigger both a positive and a negative response.
@@ -30,5 +30,5 @@ found
 The required Python packages and their versions are specified on the
 `requirement.txt` file.
 
-Note: The simulations require that neuron is installed on the computer. To
-download Neuron [see](https://www.neuron.yale.edu/neuron/download)
+Note: The simulations require the NEURON simulator. To
+download it [see](https://www.neuron.yale.edu/neuron/download)
