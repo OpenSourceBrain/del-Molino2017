@@ -25,3 +25,10 @@ trigger both a positive and a negative response.
 A reproduction of the main findings of the paper using the NeuroML code can be
 found
 [here](https://github.com/OpenSourceBrain/del-Molino2017/blob/development/notebooks/delMolino2017.ipynb).
+
+## Requirements
+The required Python packages and their versions are specified on the
+`requirement.txt` file.
+
+Note: The simulations require that neuron is installed on the computer. To
+download Neuron [see](https://www.neuron.yale.edu/neuron/download)
