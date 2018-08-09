@@ -12,11 +12,16 @@ e29742](https://cdn.elifesciences.org/articles/29742/elife-29742-v2.pdf).
 
 The model simulates the dynamics of Pyramidal cells (E)
 with three interneurons types (parvalbumin (PV), somatostatin (SST) and
-vasoactive intestinal peptide (VIP)). With this model the authors provide
+vasoactive intestinal peptide (VIP)). With this model, the authors provide
 answers to two counterintuitive phenomena: (I) the external activation of a
 population that inhibits a second population can trigger a positive response in
 the latter. (II) Depending on the sensory input a top-down modulation can
 trigger both a positive and a negative response.
+
+The authors first look at the interaction between single units (image on the left)
+and then scale up the model to analyse
+the interaction of a network of multiple interacting units in each population
+(image on the right).
 
 ## NeuroML version of the model
 <!-- We simulated the population firing rate for a low baseline and high baseline -->
