@@ -69,13 +69,15 @@ timeLine = np.arange(0, T, dt)
 
 # Plot rate over time (selected range)
 timeLine = timeLine - T/4 + 5
-fig = plt.figure()
-fig.canvas.set_window_title("Low baseline activity: rates")
-plt.plot(timeLine, sol_low[0, :], 'b')
-plt.plot(timeLine, sol_low[1, :], 'r')
-plt.plot(timeLine, sol_low[2, :], 'm')
-plt.plot(timeLine, sol_low[3, :], 'g')
-plt.xlim(xmin=0, xmax=20)
+
+if not '-nogui' in sys.argv:
+    fig = plt.figure()
+    fig.canvas.set_window_title("Low baseline activity: rates")
+    plt.plot(timeLine, sol_low[0, :], 'b')
+    plt.plot(timeLine, sol_low[1, :], 'r')
+    plt.plot(timeLine, sol_low[2, :], 'm')
+    plt.plot(timeLine, sol_low[3, :], 'g')
+    plt.xlim(xmin=0, xmax=20)
 
 if debug:
     # Plot membrane
@@ -99,24 +101,25 @@ for idx, VV in enumerate(V_Vec):
     VV_pop = np.ones((4, 1)) * VV
     rr[idx, :] = calculate_phi(VV_pop, Vth, Vr).ravel()
 
-fig = plt.figure()
-fig.canvas.set_window_title("Low baseline activity: tuning curves")
-plt.plot(V_Vec, rr[:, 0], label='ePop', color='blue')
-plt.plot(V_Vec, rr[:, 1], label='pvPop', color='red')
-plt.plot(V_Vec, rr[:, 2], label='sstPop', color='darkorchid')
-plt.plot(V_Vec, rr[:, 3], label='vipPop', color='green')
+if not '-nogui' in sys.argv:
+    fig = plt.figure()
+    fig.canvas.set_window_title("Low baseline activity: tuning curves")
+    plt.plot(V_Vec, rr[:, 0], label='ePop', color='blue')
+    plt.plot(V_Vec, rr[:, 1], label='pvPop', color='red')
+    plt.plot(V_Vec, rr[:, 2], label='sstPop', color='darkorchid')
+    plt.plot(V_Vec, rr[:, 3], label='vipPop', color='green')
 
-# get the markers from your calculate_population function
-plt.plot(vt_low[:, 1][0], sol_low[:, 1][0], 'o', color='blue')
-plt.plot(vt_low[:, 1][1], sol_low[:, 1][1], 'o', color='red')
-plt.plot(vt_low[:, 1][2], sol_low[:, 1][2], 'o', color='darkorchid')
-plt.plot(vt_low[:, 1][3], sol_low[:, 1][3], 'o', color='green')
+    # get the markers from your calculate_population function
+    plt.plot(vt_low[:, 1][0], sol_low[:, 1][0], 'o', color='blue')
+    plt.plot(vt_low[:, 1][1], sol_low[:, 1][1], 'o', color='red')
+    plt.plot(vt_low[:, 1][2], sol_low[:, 1][2], 'o', color='darkorchid')
+    plt.plot(vt_low[:, 1][3], sol_low[:, 1][3], 'o', color='green')
 
-plt.plot()
-plt.xlabel('Voltage (ms)')
-plt.ylabel('r (Hz)')
-plt.ylim(ymin=0, ymax=60)
-plt.legend(loc=(1.04,0))
+    plt.plot()
+    plt.xlabel('Voltage (ms)')
+    plt.ylabel('r (Hz)')
+    plt.ylim(ymin=0, ymax=60)
+    plt.legend(loc=(1.04,0))
 
 #----------------------------------------------------------------------------------------------------------------------
 #                                           High Baseline Activity
@@ -133,13 +136,14 @@ timeLine = np.arange(0, T, dt)
 # Plot rate over time (selected range)
 timeLine = timeLine - T/4 + 5
 
-fig = plt.figure()
-fig.canvas.set_window_title("High baseline activity: rates")
-plt.plot(timeLine, sol_high[0, :], 'b')
-plt.plot(timeLine, sol_high[1, :], 'r')
-plt.plot(timeLine, sol_high[2, :], 'm')
-plt.plot(timeLine, sol_high[3, :], 'g')
-plt.xlim(xmin=0, xmax=20)
+if not '-nogui' in sys.argv:
+    fig = plt.figure()
+    fig.canvas.set_window_title("High baseline activity: rates")
+    plt.plot(timeLine, sol_high[0, :], 'b')
+    plt.plot(timeLine, sol_high[1, :], 'r')
+    plt.plot(timeLine, sol_high[2, :], 'm')
+    plt.plot(timeLine, sol_high[3, :], 'g')
+    plt.xlim(xmin=0, xmax=20)
 
 if debug:
     # Plot membrane voltage over time
@@ -158,26 +162,26 @@ if debug:
 
 # Plot f-I Curve
 # Use the data for the low baseline activity population
-fig = plt.figure()
-fig.canvas.set_window_title("High baseline activity: tuning curves")
-plt.plot(V_Vec, rr[:, 0], label='ePop', color='blue')
-plt.plot(V_Vec, rr[:, 1], label='pvPop', color='red')
-plt.plot(V_Vec, rr[:, 2], label='sstPop', color='darkorchid')
-plt.plot(V_Vec, rr[:, 3], label='vipPop', color='green')
-
-# get the markers from your calculate_population function
-plt.plot(vt_high[:, 1][0], sol_high[:, 1][0], 'o', color='blue')
-plt.plot(vt_high[:, 1][1], sol_high[:, 1][1], 'o', color='red')
-plt.plot(vt_high[:, 1][2], sol_high[:, 1][2], 'o', color='darkorchid')
-plt.plot(vt_high[:, 1][3], sol_high[:, 1][3], 'o', color='green')
-
-plt.plot()
-plt.xlabel('Voltage (ms)')
-plt.ylabel('r (Hz)')
-plt.ylim(ymin=0, ymax=60)
-plt.legend(loc=(1.04,0))
-
 if not '-nogui' in sys.argv:
+    fig = plt.figure()
+    fig.canvas.set_window_title("High baseline activity: tuning curves")
+    plt.plot(V_Vec, rr[:, 0], label='ePop', color='blue')
+    plt.plot(V_Vec, rr[:, 1], label='pvPop', color='red')
+    plt.plot(V_Vec, rr[:, 2], label='sstPop', color='darkorchid')
+    plt.plot(V_Vec, rr[:, 3], label='vipPop', color='green')
+
+    # get the markers from your calculate_population function
+    plt.plot(vt_high[:, 1][0], sol_high[:, 1][0], 'o', color='blue')
+    plt.plot(vt_high[:, 1][1], sol_high[:, 1][1], 'o', color='red')
+    plt.plot(vt_high[:, 1][2], sol_high[:, 1][2], 'o', color='darkorchid')
+    plt.plot(vt_high[:, 1][3], sol_high[:, 1][3], 'o', color='green')
+
+    plt.plot()
+    plt.xlabel('Voltage (ms)')
+    plt.ylabel('r (Hz)')
+    plt.ylim(ymin=0, ymax=60)
+    plt.legend(loc=(1.04,0))
+
     plt.show()
     
 print('Done')
