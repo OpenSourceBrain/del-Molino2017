@@ -91,6 +91,7 @@ net.inputs.append(Input(id='bkgE',
                         population=pE.id,
                         percentage=100))'''
                         
+                        
 net.inputs.append(Input(id='modulation',
                         input_source=input_source0.id,
                         population=pVIP.id,
@@ -122,3 +123,5 @@ import sys
 
 check_to_generate_or_run(sys.argv, sim)
 
+                        
+print('\n********************\n****  NOT YET COMPLETE! Connections & real cell need to be used!\n********************')

@@ -2,7 +2,7 @@
     
     <!-- 
 
-        This LEMS file has been automatically generated using PyNeuroML v0.3.11 (libNeuroML v0.2.39)
+        This LEMS file has been automatically generated using PyNeuroML v0.5.1 (libNeuroML v0.2.50)
 
      -->
     
@@ -21,13 +21,13 @@
    
     <Simulation id="LEMS_fISim_sst.xml" length="200ms" step="0.1ms" target="net_sst" seed="12345">  <!-- Note seed: ensures same random numbers used every run -->
         
-        <Display id="Rate" title="Rates" timeScale="1ms" xmin="-20.0" xmax="220.00000000000003" ymin="-2" ymax="45">
+        <Display id="Rate" title="Rates" timeScale="1ms" xmin="-20.0" xmax="220.0" ymin="-2" ymax="45">
             <Line id="sst0" quantity="sstPop[0]/r" scale="1" color="#0000ff" timeScale="1ms"/>
             <Line id="sst10" quantity="sstPop[10]/r" scale="1" color="#DDA0DD" timeScale="1ms"/>
             <Line id="sst19" quantity="sstPop[19]/r" scale="1" color="#00ff00" timeScale="1ms"/>
         </Display>
         
-        <Display id="Voltage" title="Voltages" timeScale="1ms" xmin="-20.0" xmax="220.00000000000003" ymin="-.072" ymax="-.035">
+        <Display id="Voltage" title="Voltages" timeScale="1ms" xmin="-20.0" xmax="220.0" ymin="-.072" ymax="-.035">
             <Line id="sst0" quantity="sstPop[0]/V" scale="1" color="#0000ff" timeScale="1ms"/>
             <Line id="sst10" quantity="sstPop[10]/V" scale="1" color="#DDA0DD" timeScale="1ms"/>
             <Line id="sst19" quantity="sstPop[19]/V" scale="1" color="#00ff00" timeScale="1ms"/>
