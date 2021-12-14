@@ -1,6 +1,4 @@
-import matplotlib
-matplotlib.use('TkAgg')
-import matplotlib.pyplot as plt
+
 import numpy as np
 import sys
 
@@ -71,6 +69,8 @@ timeLine = np.arange(0, T, dt)
 timeLine = timeLine - T/4 + 5
 
 if not '-nogui' in sys.argv:
+    import matplotlib
+    import matplotlib.pyplot as plt
     fig = plt.figure()
     fig.canvas.set_window_title("Low baseline activity: rates")
     plt.plot(timeLine, sol_low[0, :], 'b')
@@ -183,5 +183,5 @@ if not '-nogui' in sys.argv:
     plt.legend(loc=(1.04,0))
 
     plt.show()
-    
+
 print('Done')
