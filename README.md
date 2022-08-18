@@ -1,7 +1,7 @@
 # del-Molino2017
-Implementation in NeuromL2/LEMS of del Molino, L. C. G., Yang, G. R., Mejias, J.
+Implementation in NeuroML2/LEMS of del Molino, L. C. G., Yang, G. R., Mejias, J.
 F., & Wang, X. J. (2017). Paradoxical response reversal of top-down modulation
-in cortical circuits with three interneuron types. [Elife, 6,
+in cortical circuits with three interneuron types. [eLife, 6,
 e29742](https://cdn.elifesciences.org/articles/29742/elife-29742-v2.pdf).
 
 ## The model
