@@ -1,4 +1,6 @@
 # del-Molino2017
+[![Continuous build using OMV](https://github.com/OpenSourceBrain/del-Molino2017/actions/workflows/omv-ci.yml/badge.svg)](https://github.com/OpenSourceBrain/del-Molino2017/actions/workflows/omv-ci.yml)
+
 Implementation in NeuroML2/LEMS of del Molino, L. C. G., Yang, G. R., Mejias, J.
 F., & Wang, X. J. (2017). Paradoxical response reversal of top-down modulation
 in cortical circuits with three interneuron types. [eLife, 6,
@@ -38,4 +40,4 @@ The required Python packages and their versions are specified on the
 Note: The simulations require the NEURON simulator. To
 download it [see](https://www.neuron.yale.edu/neuron/download)
 
-[![Continuous build using OMV](https://github.com/OpenSourceBrain/del-Molino2017/actions/workflows/omv-ci.yml/badge.svg)](https://github.com/OpenSourceBrain/del-Molino2017/actions/workflows/omv-ci.yml)
+
