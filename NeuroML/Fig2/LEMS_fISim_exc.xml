@@ -2,7 +2,7 @@
     
     <!-- 
 
-        This LEMS file has been automatically generated using PyNeuroML v0.5.1 (libNeuroML v0.2.50)
+        This LEMS file has been automatically generated using PyNeuroML v1.0.10 (libNeuroML v0.5.3)
 
      -->
     
@@ -21,13 +21,13 @@
    
     <Simulation id="LEMS_fISim_exc.xml" length="200ms" step="0.1ms" target="net_exc" seed="12345">  <!-- Note seed: ensures same random numbers used every run -->
         
-        <Display id="Rate" title="Rates" timeScale="1ms" xmin="-20.0" xmax="220.0" ymin="-2" ymax="45">
+        <Display id="Rate" title="Rates" timeScale="1ms" xmin="-20.0" xmax="220.00000000000003" ymin="-2" ymax="45">
             <Line id="exc0" quantity="excPop[0]/r" scale="1" color="#0000ff" timeScale="1ms"/>
             <Line id="exc10" quantity="excPop[10]/r" scale="1" color="#DDA0DD" timeScale="1ms"/>
             <Line id="exc19" quantity="excPop[19]/r" scale="1" color="#00ff00" timeScale="1ms"/>
         </Display>
         
-        <Display id="Voltage" title="Voltages" timeScale="1ms" xmin="-20.0" xmax="220.0" ymin="-.072" ymax="-.035">
+        <Display id="Voltage" title="Voltages" timeScale="1ms" xmin="-20.0" xmax="220.00000000000003" ymin="-.072" ymax="-.035">
             <Line id="exc0" quantity="excPop[0]/V" scale="1" color="#0000ff" timeScale="1ms"/>
             <Line id="exc10" quantity="excPop[10]/V" scale="1" color="#DDA0DD" timeScale="1ms"/>
             <Line id="exc19" quantity="excPop[19]/V" scale="1" color="#00ff00" timeScale="1ms"/>
