@@ -1,9 +1,13 @@
 set -e
 # remove files
-if [ -d x86/64 ]; then
-        rm -r x86/64
+if [ -d x86_64 ]; then
+        rm -r x86_64
+        echo Removed x86_64 folder
 fi
-echo Removed x86/64 folder
+if [ -d arm64 ]; then
+        rm -r arm64
+        echo Removed arm64 folder
+fi
 
 ################################################################################
 # High Base Rate

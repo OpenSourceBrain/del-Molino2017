@@ -17,10 +17,10 @@ cell.parameters = { "tau_refrac":5, "i_offset":.1 }
 net.cells.append(cell)
 
 
-input_source0 = InputSource(id='iclamp0', 
-                           pynn_input='DCSource', 
+input_source0 = InputSource(id='iclamp0',
+                           pynn_input='DCSource',
                            parameters={'amplitude':10, 'start':50., 'stop':150.})
-                           
+
 net.input_sources.append(input_source0)
 
 r1 = RectangularRegion(id='network', x=0,y=0,z=0,width=100,height=100,depth=10)
@@ -30,7 +30,7 @@ colors = [[8,48,107],         # dark-blue
           [228,26,28],        # red
           [152,78,163],       # purple
           [77,175,74]]
-    
+
 color_str = {}
 for i in range(len(colors)):
     color_str[i] = ''
@@ -51,47 +51,47 @@ net.populations.append(pPV)
 pops = [pE,pPV,pSST,pVIP]
 
 
-net.synapses.append(Synapse(id='ampa', 
-                            pynn_receptor_type='excitatory', 
-                            pynn_synapse_type='cond_alpha', 
+net.synapses.append(Synapse(id='ampa',
+                            pynn_receptor_type='excitatory',
+                            pynn_synapse_type='cond_alpha',
                             parameters={'e_rev':-10, 'tau_syn':2}))
-net.synapses.append(Synapse(id='gaba', 
-                            pynn_receptor_type='inhibitory', 
-                            pynn_synapse_type='cond_alpha', 
+net.synapses.append(Synapse(id='gaba',
+                            pynn_receptor_type='inhibitory',
+                            pynn_synapse_type='cond_alpha',
                             parameters={'e_rev':-80, 'tau_syn':10}))
 
 W = [[2.4167,   -0.3329,   -0.8039,         0],
     [2.9706,   -3.4554,   -2.1291,         0],
     [4.6440,         0,         0,   -2.7896],
     [0.7162,         0,   -0.1560,         0]]
-    
+
 for pre in pops:
     for post in pops:
-        
+
         weight = W[pops.index(post)][pops.index(pre)]
         print('Connection %s -> %s weight %s'%(pre.id, post.id, weight))
         if weight!=0:
-            
+
             net.projections.append(Projection(id='proj_%s_%s'%(pre.id,post.id),
-                                              presynaptic=pre.id, 
+                                              presynaptic=pre.id,
                                               postsynaptic=post.id,
                                               synapse='ampa',
                                               delay=0,
                                               weight=weight))
-                               
+
 '''
-bkgE = InputSource(id='bkgEstim', 
-                           pynn_input='DCSource', 
+bkgE = InputSource(id='bkgEstim',
+                           pynn_input='DCSource',
                            parameters={'amplitude':2, 'start':0., 'stop':1e6})
-                        
+
 net.input_sources.append(bkgE)
 
 net.inputs.append(Input(id='bkgE',
                         input_source=bkgE.id,
                         population=pE.id,
                         percentage=100))'''
-                        
-                        
+
+
 net.inputs.append(Input(id='modulation',
                         input_source=input_source0.id,
                         population=pVIP.id,
@@ -109,8 +109,8 @@ sim = Simulation(id='SimdelMolinoEtAl',
                  network=new_file,
                  duration='200',
                  dt='0.025',
-                 recordTraces={'all':'*'})
-                 
+                 record_traces={'all':'*'})
+
 sim.to_json_file()
 
 
@@ -123,5 +123,5 @@ import sys
 
 check_to_generate_or_run(sys.argv, sim)
 
-                        
+
 print('\n********************\n****  NOT YET COMPLETE! Connections & real cell need to be used!\n********************')
