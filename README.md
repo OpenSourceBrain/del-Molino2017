@@ -1,5 +1,5 @@
 # del-Molino2017
-[![Continuous build using OMV](https://github.com/OpenSourceBrain/del-Molino2017/actions/workflows/omv-ci.yml/badge.svg)](https://github.com/OpenSourceBrain/del-Molino2017/actions/workflows/omv-ci.yml)
+[![Continuous build using OMV](https://github.com/OpenSourceBrain/del-Molino2017/actions/workflows/omv-ci.yml/badge.svg)](https://github.com/OpenSourceBrain/del-Molino2017/actions/workflows/omv-ci.yml) [![Non OMV tests](https://github.com/OpenSourceBrain/del-Molino2017/actions/workflows/non_omv.yml/badge.svg)](https://github.com/OpenSourceBrain/del-Molino2017/actions/workflows/non_omv.yml)
 
 Implementation in NeuroML2/LEMS of del Molino, L. C. G., Yang, G. R., Mejias, J.
 F., & Wang, X. J. (2017). Paradoxical response reversal of top-down modulation
