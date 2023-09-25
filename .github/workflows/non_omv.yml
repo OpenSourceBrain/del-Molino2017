@@ -11,6 +11,7 @@ jobs:
 
     runs-on: ubuntu-latest
     strategy:
+      fail-fast: false
       matrix:
         python-version: [ 3.9, "3.10" ]
 
@@ -26,7 +27,7 @@ jobs:
       run: |
 
         cd NeuroML
-        pip install pyneuroml
+        pip install pyneuroml pyNN
 
         python GenerateNeuroMLlite.py -jnml
 
@@ -35,4 +36,13 @@ jobs:
 
         omv install NEURON
         export NEURON_HOME=$pythonLocation # so that pynml can find neuron/nrnivmodl etc.
+
+        cd Fig1
+        ./testAll.sh
+
+        cd ../Fig2 
+        ./testall.sh
+
+        cd ../Fig3
+        ./run_jnml.sh
 
