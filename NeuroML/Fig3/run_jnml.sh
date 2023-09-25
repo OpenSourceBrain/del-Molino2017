@@ -2,8 +2,11 @@ set -ex
 
 python GeneratePopulationRate.py
 
-pynml LEMS_PopulationSimlowBaseline.xml  -nogui
-pynml LEMS_PopulationSimhighBaseline.xml -nogui
+
+if [[ "$CI" != "true" ]]; then  # Throws out of memory error on GHA
+    pynml LEMS_PopulationSimlowBaseline.xml  -nogui
+    pynml LEMS_PopulationSimhighBaseline.xml -nogui
+fi
 
 pynml LEMS_PopulationSimlowBaseline.xml  -neuron -run -nogui
 pynml LEMS_PopulationSimhighBaseline.xml -neuron -run -nogui
