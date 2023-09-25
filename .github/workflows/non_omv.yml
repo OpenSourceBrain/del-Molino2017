@@ -25,7 +25,7 @@ jobs:
     - name: Generate NeuroML version
       run: |
 
-        cd NeuroML2
+        cd NeuroML
         pip install pyneuroml
 
         python GenerateNeuroMLlite.py -jnml
