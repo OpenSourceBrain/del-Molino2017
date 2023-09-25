@@ -17,7 +17,7 @@ with three interneurons types (parvalbumin (PV), somatostatin (SST) and
 vasoactive intestinal peptide (VIP)). With this model, the authors provide
 answers to two counterintuitive phenomena: (I) the external activation of a
 population that inhibits a second population can trigger a positive response in
-the latter. (II) Depending on the sensory input a top-down modulation can
+the latter; (II) depending on the sensory input a top-down modulation can
 trigger both a positive and a negative response.
 
 The authors first look at the interaction between single units (image on the left)
@@ -37,7 +37,7 @@ found
 The required Python packages and their versions are specified on the
 `requirement.txt` file.
 
-Note: The simulations require the NEURON simulator. To
-download it [see](https://www.neuron.yale.edu/neuron/download)
+Note: Some of the simulations require the NEURON simulator. To
+download it see [here](https://www.neuron.yale.edu/neuron/download).
 
 
