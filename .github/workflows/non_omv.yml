@@ -29,7 +29,7 @@ jobs:
         cd NeuroML
         pip install pyneuroml pyNN
 
-        python GenerateNeuroMLlite.py -jnml
+        python GenerateNeuroMLlite.py -nml
 
         pip install git+https://github.com/OpenSourceBrain/osb-model-validation
         pip install scipy sympy matplotlib cython pandas tables
