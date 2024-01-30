@@ -15,7 +15,6 @@
     <Include file="Simulation.xml"/>
 
     <Include file="../RateBased.xml"/>
-    <Include file="../CellDefinition.xml"/>
     <Include file="../RateBasedSpecifications_high_baseline.xml"/>
     <Include file="fI_sst.nml"/>
 

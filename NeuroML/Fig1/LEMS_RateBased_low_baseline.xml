@@ -7,15 +7,15 @@
     <Include file="Networks.xml" />
     <Include file="Simulation.xml" />
 
-    <Include file="../CellDefinition.xml" />
+    <Include file="../RateBased.xml" />
 
 
     <!-- Main NeuroML2 content. Based on http://www.scholarpedia.org/article/FitzHugh-Nagumo_model -->
 
     <abbottChance2005Cell id="Exc" Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="6.25nS" tau="28.8ms" tau_r="2ms" r0="1Hz"/>
-    <abbottChance2005Cell id="PV"  Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="10nS"   tau="8ms"  tau_r="2ms" r0="10Hz"/>
-    <abbottChance2005Cell id="SST" Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="5nS"    tau="16ms" tau_r="2ms" r0="3Hz"/>
-    <abbottChance2005Cell id="VIP" Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="5nS"    tau="16ms" tau_r="2ms" r0="2Hz"/>
+    <abbottChance2005Cell id="PV"  Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="10nS"   tau="8ms"    tau_r="2ms" r0="10Hz"/>
+    <abbottChance2005Cell id="SST" Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="5nS"    tau="16ms"   tau_r="2ms" r0="3Hz"/>
+    <abbottChance2005Cell id="VIP" Vth="-50mV" Vr="-60mV" Vl="-70mV" Vscale="1mV" gl="5nS"    tau="16ms"   tau_r="2ms" r0="2Hz"/>
 
     <!--Dummy synapse which emits no current. Used as presynaptic endpoint for analog synaptic connection.-->
     <silentSynapse id="silent1"/>

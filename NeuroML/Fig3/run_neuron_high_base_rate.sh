@@ -21,25 +21,29 @@ echo Removed LEMS_PopulationSimhighBaseline file
 python GeneratePopulationRate.py
 
 
-if [ "$1" == "-nogui" ]; then
+if [[ "$CI" != "true" ]]; then  # Throws out of memory error on GHA
 
-    jnml LEMS_PopulationSimhighBaseline.xml -neuron -nogui
+    if [ "$1" == "-nogui" ]; then
 
-    # Generate folder with neuron executables
-    nrnivmodl
+        jnml LEMS_PopulationSimhighBaseline.xml -neuron -nogui
 
-    echo Use neuron without gui and run the simulation
-    nrniv -python LEMS_PopulationSimhighBaseline_nrn.py
+        # Generate folder with neuron executables
+        nrnivmodl
 
-else
+        echo Use neuron without gui and run the simulation
+        nrniv -python LEMS_PopulationSimhighBaseline_nrn.py
 
-    jnml LEMS_PopulationSimhighBaseline.xml -neuron -nogui
+    else
 
-    # Generate folder with neuron executables
-    nrnivmodl
+        jnml LEMS_PopulationSimhighBaseline.xml -neuron
 
-    echo Use neuron with gui and run the simulation
-    nrngui -python LEMS_PopulationSimhighBaseline_nrn.py
+        # Generate folder with neuron executables
+        nrnivmodl
+
+        echo Use neuron with gui and run the simulation
+        nrngui -python LEMS_PopulationSimhighBaseline_nrn.py
+
+    fi
 
 fi
 echo "Finished NEURON run"

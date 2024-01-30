@@ -9,7 +9,10 @@ cd ../Fig2
 ./testall.sh
 
 cd ../Fig3
+
 ./run_jnml.sh
+./run_neuron_high_base_rate.sh -nogui
+./run_neuron_low_base_rate.sh -nogui
 
 cd ..
 

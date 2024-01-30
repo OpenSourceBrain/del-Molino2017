@@ -199,6 +199,54 @@
     </ComponentType>
 
 
+    <ComponentType  name="abbottChance2005Cell"
+                    extends="baseRateUnit"
+                    description="As used in del-Molino et al 2017...">
+
+        <Parameter name="Vth" dimension="voltage"/>
+        <Parameter name="Vr" dimension="voltage"/>
+        <Parameter name="Vl" dimension="voltage"/>
+        <Parameter name="Vscale" dimension="voltage"/>
+        <Parameter name="r0" dimension="per_time"/>
+        <Parameter name="gl" dimension="conductance"/>
+        <Parameter name="tau" dimension="time"/>
+        <Parameter name="tau_r" dimension="time"/>
+
+        <Attachments name="synapses" type="basePointCurrent"/>
+
+        <Exposure name="iSyn" dimension="current"/>
+        <Exposure name="V" dimension="voltage"/>
+        <Exposure name="f" dimension="per_time"/>
+
+        <Dynamics>
+
+            <OnStart>
+                <StateAssignment variable="r" value="r0"/>
+            </OnStart>
+
+            <StateVariable name="v" dimension="voltage" exposure="v"/>
+            
+            <StateVariable name="r" dimension="per_time" exposure="r" description="Rate..."/>
+
+            <DerivedVariable name="iSyn" dimension="current" exposure="iSyn" select="synapses[*]/i" reduce="add" />
+
+            <!--Should this be changed to v?? -->
+            <DerivedVariable name="V" dimension="voltage" exposure="V" value="Vl + (iSyn)/gl"/>
+
+            <DerivedVariable name="f" dimension="per_time" exposure="f" value="( (V-Vth)/(tau*(Vth-Vr)) ) * (1/(1-exp(-1*(V-Vth)/Vscale)))"/>
+
+            <TimeDerivative variable="r" value="(-1*r + f)/tau_r"/>
+
+            <OnCondition test="V .gt. Vth">
+                <EventOut port="spike"/>
+            </OnCondition>
+
+        </Dynamics>
+
+    </ComponentType>
+
+
+
     <ComponentType name="baseGradedSynapseDL"
                    extends="baseSynapseDL"
                    description="Base type for dimensionless graded synapses">
