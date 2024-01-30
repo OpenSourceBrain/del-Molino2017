@@ -1,11 +1,11 @@
 <Lems>
-    
+
     <!-- 
 
-        This LEMS file has been automatically generated using PyNeuroML v1.1.5 (libNeuroML v0.5.6)
+        This LEMS file has been automatically generated using PyNeuroML v1.1.13 (libNeuroML v0.5.8)
 
      -->
-    
+
     <!-- Specify which component to run -->
     <Target component="LEMS_fISim_exc.xml"/>
 
@@ -13,69 +13,67 @@
     <Include file="Cells.xml"/>
     <Include file="Networks.xml"/>
     <Include file="Simulation.xml"/>
-    
+
     <Include file="../RateBased.xml"/>
-    <Include file="../CellDefinition.xml"/>
     <Include file="../RateBasedSpecifications_high_baseline.xml"/>
     <Include file="fI_exc.nml"/>
-   
+
     <Simulation id="LEMS_fISim_exc.xml" length="200ms" step="0.1ms" target="net_exc" seed="12345">  <!-- Note seed: ensures same random numbers used every run -->
-        
         <Display id="Rate" title="Rates" timeScale="1ms" xmin="-20.0" xmax="220.00000000000003" ymin="-2" ymax="45">
             <Line id="exc0" quantity="excPop[0]/r" scale="1" color="#0000ff" timeScale="1ms"/>
             <Line id="exc10" quantity="excPop[10]/r" scale="1" color="#DDA0DD" timeScale="1ms"/>
             <Line id="exc19" quantity="excPop[19]/r" scale="1" color="#00ff00" timeScale="1ms"/>
         </Display>
-        
+
         <Display id="Voltage" title="Voltages" timeScale="1ms" xmin="-20.0" xmax="220.00000000000003" ymin="-.072" ymax="-.035">
             <Line id="exc0" quantity="excPop[0]/V" scale="1" color="#0000ff" timeScale="1ms"/>
             <Line id="exc10" quantity="excPop[10]/V" scale="1" color="#DDA0DD" timeScale="1ms"/>
             <Line id="exc19" quantity="excPop[19]/V" scale="1" color="#00ff00" timeScale="1ms"/>
         </Display>
-        
+
         <OutputFile id="of1" fileName="fI_exc.dat">
-            <OutputColumn id="r0" quantity="excPop[0]/r"/> 
-            <OutputColumn id="V0" quantity="excPop[0]/V"/> 
-            <OutputColumn id="r1" quantity="excPop[1]/r"/> 
-            <OutputColumn id="V1" quantity="excPop[1]/V"/> 
-            <OutputColumn id="r2" quantity="excPop[2]/r"/> 
-            <OutputColumn id="V2" quantity="excPop[2]/V"/> 
-            <OutputColumn id="r3" quantity="excPop[3]/r"/> 
-            <OutputColumn id="V3" quantity="excPop[3]/V"/> 
-            <OutputColumn id="r4" quantity="excPop[4]/r"/> 
-            <OutputColumn id="V4" quantity="excPop[4]/V"/> 
-            <OutputColumn id="r5" quantity="excPop[5]/r"/> 
-            <OutputColumn id="V5" quantity="excPop[5]/V"/> 
-            <OutputColumn id="r6" quantity="excPop[6]/r"/> 
-            <OutputColumn id="V6" quantity="excPop[6]/V"/> 
-            <OutputColumn id="r7" quantity="excPop[7]/r"/> 
-            <OutputColumn id="V7" quantity="excPop[7]/V"/> 
-            <OutputColumn id="r8" quantity="excPop[8]/r"/> 
-            <OutputColumn id="V8" quantity="excPop[8]/V"/> 
-            <OutputColumn id="r9" quantity="excPop[9]/r"/> 
-            <OutputColumn id="V9" quantity="excPop[9]/V"/> 
-            <OutputColumn id="r10" quantity="excPop[10]/r"/> 
-            <OutputColumn id="V10" quantity="excPop[10]/V"/> 
-            <OutputColumn id="r11" quantity="excPop[11]/r"/> 
-            <OutputColumn id="V11" quantity="excPop[11]/V"/> 
-            <OutputColumn id="r12" quantity="excPop[12]/r"/> 
-            <OutputColumn id="V12" quantity="excPop[12]/V"/> 
-            <OutputColumn id="r13" quantity="excPop[13]/r"/> 
-            <OutputColumn id="V13" quantity="excPop[13]/V"/> 
-            <OutputColumn id="r14" quantity="excPop[14]/r"/> 
-            <OutputColumn id="V14" quantity="excPop[14]/V"/> 
-            <OutputColumn id="r15" quantity="excPop[15]/r"/> 
-            <OutputColumn id="V15" quantity="excPop[15]/V"/> 
-            <OutputColumn id="r16" quantity="excPop[16]/r"/> 
-            <OutputColumn id="V16" quantity="excPop[16]/V"/> 
-            <OutputColumn id="r17" quantity="excPop[17]/r"/> 
-            <OutputColumn id="V17" quantity="excPop[17]/V"/> 
-            <OutputColumn id="r18" quantity="excPop[18]/r"/> 
-            <OutputColumn id="V18" quantity="excPop[18]/V"/> 
-            <OutputColumn id="r19" quantity="excPop[19]/r"/> 
-            <OutputColumn id="V19" quantity="excPop[19]/V"/> 
+            <OutputColumn id="r0" quantity="excPop[0]/r"/>
+            <OutputColumn id="V0" quantity="excPop[0]/V"/>
+            <OutputColumn id="r1" quantity="excPop[1]/r"/>
+            <OutputColumn id="V1" quantity="excPop[1]/V"/>
+            <OutputColumn id="r2" quantity="excPop[2]/r"/>
+            <OutputColumn id="V2" quantity="excPop[2]/V"/>
+            <OutputColumn id="r3" quantity="excPop[3]/r"/>
+            <OutputColumn id="V3" quantity="excPop[3]/V"/>
+            <OutputColumn id="r4" quantity="excPop[4]/r"/>
+            <OutputColumn id="V4" quantity="excPop[4]/V"/>
+            <OutputColumn id="r5" quantity="excPop[5]/r"/>
+            <OutputColumn id="V5" quantity="excPop[5]/V"/>
+            <OutputColumn id="r6" quantity="excPop[6]/r"/>
+            <OutputColumn id="V6" quantity="excPop[6]/V"/>
+            <OutputColumn id="r7" quantity="excPop[7]/r"/>
+            <OutputColumn id="V7" quantity="excPop[7]/V"/>
+            <OutputColumn id="r8" quantity="excPop[8]/r"/>
+            <OutputColumn id="V8" quantity="excPop[8]/V"/>
+            <OutputColumn id="r9" quantity="excPop[9]/r"/>
+            <OutputColumn id="V9" quantity="excPop[9]/V"/>
+            <OutputColumn id="r10" quantity="excPop[10]/r"/>
+            <OutputColumn id="V10" quantity="excPop[10]/V"/>
+            <OutputColumn id="r11" quantity="excPop[11]/r"/>
+            <OutputColumn id="V11" quantity="excPop[11]/V"/>
+            <OutputColumn id="r12" quantity="excPop[12]/r"/>
+            <OutputColumn id="V12" quantity="excPop[12]/V"/>
+            <OutputColumn id="r13" quantity="excPop[13]/r"/>
+            <OutputColumn id="V13" quantity="excPop[13]/V"/>
+            <OutputColumn id="r14" quantity="excPop[14]/r"/>
+            <OutputColumn id="V14" quantity="excPop[14]/V"/>
+            <OutputColumn id="r15" quantity="excPop[15]/r"/>
+            <OutputColumn id="V15" quantity="excPop[15]/V"/>
+            <OutputColumn id="r16" quantity="excPop[16]/r"/>
+            <OutputColumn id="V16" quantity="excPop[16]/V"/>
+            <OutputColumn id="r17" quantity="excPop[17]/r"/>
+            <OutputColumn id="V17" quantity="excPop[17]/V"/>
+            <OutputColumn id="r18" quantity="excPop[18]/r"/>
+            <OutputColumn id="V18" quantity="excPop[18]/V"/>
+            <OutputColumn id="r19" quantity="excPop[19]/r"/>
+            <OutputColumn id="V19" quantity="excPop[19]/V"/>
         </OutputFile>
-        
+
     </Simulation>
 
 </Lems>

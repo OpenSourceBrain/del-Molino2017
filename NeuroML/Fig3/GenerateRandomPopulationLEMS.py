@@ -147,7 +147,6 @@ def generatePopulationSimulationLEMS(n_pops, baseline, pops, sim_length):
     # Add additional LEMS files
     # Add Rate Base Components
     ls.include_lems_file('../RateBased.xml', include_included=True)
-    ls.include_lems_file('../CellDefinition.xml', include_included=True)
     # Add specifications for the Rate Base Components
     ls.include_lems_file('../RateBasedSpecifications_%s_baseline.xml' %baseline, include_included=True)
     # Add the network definition

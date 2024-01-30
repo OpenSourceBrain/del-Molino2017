@@ -1,4 +1,5 @@
-set -e
+set -ex
+
 
 python GeneratefICurve.py
 
