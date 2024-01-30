@@ -1,7 +1,7 @@
-# del-Molino2017
+# Garcia del Molino et al. 2017
 [![Continuous build using OMV](https://github.com/OpenSourceBrain/del-Molino2017/actions/workflows/omv-ci.yml/badge.svg)](https://github.com/OpenSourceBrain/del-Molino2017/actions/workflows/omv-ci.yml) [![Non OMV tests](https://github.com/OpenSourceBrain/del-Molino2017/actions/workflows/non_omv.yml/badge.svg)](https://github.com/OpenSourceBrain/del-Molino2017/actions/workflows/non_omv.yml)
 
-Implementation in NeuroML2/LEMS of del Molino, L. C. G., Yang, G. R., Mejias, J.
+Implementation in NeuroML2/LEMS of Garcia del Molino, L. C., Yang, G. R., Mejias, J.
 F., & Wang, X. J. (2017). Paradoxical response reversal of top-down modulation
 in cortical circuits with three interneuron types. [eLife, 6,
 e29742](https://cdn.elifesciences.org/articles/29742/elife-29742-v2.pdf).
