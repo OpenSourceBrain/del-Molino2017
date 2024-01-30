@@ -37,12 +37,5 @@ jobs:
         omv install NEURON
         export NEURON_HOME=$pythonLocation # so that pynml can find neuron/nrnivmodl etc.
 
-        cd Fig1
-        ./testAll.sh
-
-        cd ../Fig2 
-        ./testall.sh
-
-        cd ../Fig3
-        ./run_jnml.sh
+        ./regenerateAndTest.sh
 
