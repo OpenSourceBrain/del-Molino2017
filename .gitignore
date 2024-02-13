@@ -35,3 +35,7 @@ notebooks/.ipynb_checkpoints
 /NeuroML/Fig3/LEMS_PopulationSimhighBaseline.xml
 /NeuroML/Fig3/LEMS_PopulationSimlowBaseline.xml
 arm64
+/NeuroML/delMolinoEtAl.yaml
+/NeuroML/delMolinoEtAl__lems.xml
+/NeuroML/ParamSweep_*
+/NeuroML/report.*txt
