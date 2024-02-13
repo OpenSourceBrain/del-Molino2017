@@ -72,7 +72,7 @@ if not '-nogui' in sys.argv:
     import matplotlib
     import matplotlib.pyplot as plt
     fig = plt.figure()
-    fig.canvas.set_window_title("Low baseline activity: rates")
+    plt.get_current_fig_manager().set_window_title("Low baseline activity: rates")
     plt.plot(timeLine, sol_low[0, :], 'b')
     plt.plot(timeLine, sol_low[1, :], 'r')
     plt.plot(timeLine, sol_low[2, :], 'm')
@@ -103,7 +103,7 @@ for idx, VV in enumerate(V_Vec):
 
 if not '-nogui' in sys.argv:
     fig = plt.figure()
-    fig.canvas.set_window_title("Low baseline activity: tuning curves")
+    plt.get_current_fig_manager().set_window_title("Low baseline activity: tuning curves")
     plt.plot(V_Vec, rr[:, 0], label='ePop', color='blue')
     plt.plot(V_Vec, rr[:, 1], label='pvPop', color='red')
     plt.plot(V_Vec, rr[:, 2], label='sstPop', color='darkorchid')
@@ -138,7 +138,7 @@ timeLine = timeLine - T/4 + 5
 
 if not '-nogui' in sys.argv:
     fig = plt.figure()
-    fig.canvas.set_window_title("High baseline activity: rates")
+    plt.get_current_fig_manager().set_window_title("High baseline activity: rates")
     plt.plot(timeLine, sol_high[0, :], 'b')
     plt.plot(timeLine, sol_high[1, :], 'r')
     plt.plot(timeLine, sol_high[2, :], 'm')
@@ -164,7 +164,7 @@ if debug:
 # Use the data for the low baseline activity population
 if not '-nogui' in sys.argv:
     fig = plt.figure()
-    fig.canvas.set_window_title("High baseline activity: tuning curves")
+    plt.get_current_fig_manager().set_window_title("High baseline activity: tuning curves")
     plt.plot(V_Vec, rr[:, 0], label='ePop', color='blue')
     plt.plot(V_Vec, rr[:, 1], label='pvPop', color='red')
     plt.plot(V_Vec, rr[:, 2], label='sstPop', color='darkorchid')
