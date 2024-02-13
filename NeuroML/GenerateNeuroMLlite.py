@@ -8,6 +8,7 @@ import sys
 ###   Build new network
 
 net = Network(id='delMolinoEtAl')
+
 net.notes = 'delMolinoEtAl eLife 2017'
 
 net.parameters = {}
@@ -22,8 +23,8 @@ net.parameters['weight_scale_PV'] =  1
 net.parameters['weight_scale_SST'] =  1
 net.parameters['weight_scale_VIP'] =  1
 
-net.parameters['delay_baseline_curr'] =  '20ms'
-net.parameters['delay_vip_mod_curr'] =  '50ms'
+net.parameters['delay_baseline_curr'] =  '0ms'
+net.parameters['delay_vip_mod_curr'] =  '5ms'
 
 
 excCell = Cell(id='EXC', lems_source_file='RateBasedSpecifications_low_baseline.xml')
@@ -130,10 +131,10 @@ new_file_y = net.to_yaml_file('%s.yaml'%net.id)
 
 sim = Simulation(id='SimdelMolinoEtAl',
                  network=new_file,
-                 duration='250',
-                 dt='0.025',
-                 record_traces={'all':'*'},
-                 record_rates={'all':'*'})
+                 duration='20',
+                 dt='0.01',
+                 record_rates={'all':'*'}) 
+'''record_traces={'all':'*'},'''
 
 sim.to_json_file()
 
@@ -147,5 +148,3 @@ import sys
 
 check_to_generate_or_run(sys.argv, sim)
 
-
-print('\n********************\n****  NOT YET COMPLETE! Connections & real cell need to be used!\n********************')
