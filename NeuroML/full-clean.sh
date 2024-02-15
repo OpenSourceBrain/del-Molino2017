@@ -10,8 +10,7 @@ directory="/home/ixanthakis/wsl_repos/PyNeuroMLTutorials/ClonedNeuroMLRepositori
 for file in "$directory"/*; do
     #Check if the file is not in the list of allowed files
     if [[ ! " ${allowed_files[@]} " =~ " ${file##*/} " ]]; then
-        #Remove the file
-        rm "$file"
+        rm -rf "$file"
         echo "Removed: $file"
     fi
 done
