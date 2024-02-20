@@ -43,3 +43,10 @@ jobs:
         cd NeuroML
         ./regenerateAndTest.sh
 
+    - name: Test Sweep script
+      run: |
+
+        cd NeuroML
+        pip install pyelectro ppft
+        python Sweep.py
+

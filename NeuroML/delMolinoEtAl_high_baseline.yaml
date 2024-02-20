@@ -1,0 +1,248 @@
+delMolinoEtAl_high_baseline:
+    version: NeuroMLlite v0.5.9
+    notes: 'delMolinoEtAl eLife 2017: high baseline parameters'
+    parameters:
+        baseline_current_Exc: 0.14725  nA
+        baseline_current_PV: 0.38673 nA
+        baseline_current_SST: 0.04027 nA
+        baseline_current_VIP: 0.09844 nA
+        global_offset_current: 0.0 nA
+        mod_current_VIP: 0.01 nA
+        weight_scale_Exc: 1
+        weight_scale_PV: 1
+        weight_scale_SST: 1
+        weight_scale_VIP: 1
+        delay_baseline_curr: 0ms
+        delay_vip_mod_curr: 5ms
+    cells:
+        EXC:
+            lems_source_file: RateBasedSpecifications_high_baseline.xml
+        PV:
+            lems_source_file: RateBasedSpecifications_high_baseline.xml
+        SST:
+            lems_source_file: RateBasedSpecifications_high_baseline.xml
+        VIP:
+            lems_source_file: RateBasedSpecifications_high_baseline.xml
+    synapses:
+        rs:
+            lems_source_file: RateBasedSpecifications_high_baseline.xml
+    input_sources:
+        vip_mod_current:
+            parameters:
+                amplitude: mod_current_VIP
+                delay: delay_vip_mod_curr
+                duration: 100 ms
+            neuroml2_input: PulseGenerator
+        baseline_exc_Exc:
+            parameters:
+                amplitude: baseline_current_Exc
+                delay: delay_baseline_curr
+                duration: 2000 ms
+            neuroml2_input: PulseGenerator
+        baseline_exc_PV:
+            parameters:
+                amplitude: baseline_current_PV
+                delay: delay_baseline_curr
+                duration: 2000 ms
+            neuroml2_input: PulseGenerator
+        baseline_exc_SST:
+            parameters:
+                amplitude: baseline_current_SST
+                delay: delay_baseline_curr
+                duration: 2000 ms
+            neuroml2_input: PulseGenerator
+        baseline_exc_VIP:
+            parameters:
+                amplitude: baseline_current_VIP
+                delay: delay_baseline_curr
+                duration: 2000 ms
+            neuroml2_input: PulseGenerator
+        global_offset_curr_Exc:
+            parameters:
+                amplitude: global_offset_current
+                delay: delay_baseline_curr
+                duration: 2000 ms
+            neuroml2_input: PulseGenerator
+        global_offset_curr_PV:
+            parameters:
+                amplitude: global_offset_current
+                delay: delay_baseline_curr
+                duration: 2000 ms
+            neuroml2_input: PulseGenerator
+        global_offset_curr_SST:
+            parameters:
+                amplitude: global_offset_current
+                delay: delay_baseline_curr
+                duration: 2000 ms
+            neuroml2_input: PulseGenerator
+        global_offset_curr_VIP:
+            parameters:
+                amplitude: global_offset_current
+                delay: delay_baseline_curr
+                duration: 2000 ms
+            neuroml2_input: PulseGenerator
+    regions:
+        network:
+            x: 0.0
+            y: 0.0
+            z: 0.0
+            width: 100.0
+            height: 100.0
+            depth: 10.0
+    populations:
+        Exc:
+            size: 1
+            component: EXC
+            properties:
+                color: 0.03137254901960784 0.18823529411764706 0.4196078431372549
+            random_layout:
+                region: network
+        PV:
+            size: 1
+            component: PV
+            properties:
+                color: 0.8941176470588236 0.10196078431372549 0.10980392156862745
+            random_layout:
+                region: network
+        SST:
+            size: 1
+            component: SST
+            properties:
+                color: 0.596078431372549 0.3058823529411765 0.6392156862745098
+            random_layout:
+                region: network
+        VIP:
+            size: 1
+            component: VIP
+            properties:
+                color: 0.30196078431372547 0.6862745098039216 0.2901960784313726
+            random_layout:
+                region: network
+    projections:
+        proj_Exc_Exc:
+            presynaptic: Exc
+            postsynaptic: Exc
+            synapse: rs
+            type: continuousProjection
+            delay: 0
+            weight: weight_scale_Exc * 2.4167
+            random_connectivity:
+                probability: 1
+        proj_Exc_PV:
+            presynaptic: Exc
+            postsynaptic: PV
+            synapse: rs
+            type: continuousProjection
+            delay: 0
+            weight: weight_scale_Exc * 2.9706
+            random_connectivity:
+                probability: 1
+        proj_Exc_SST:
+            presynaptic: Exc
+            postsynaptic: SST
+            synapse: rs
+            type: continuousProjection
+            delay: 0
+            weight: weight_scale_Exc * 4.644
+            random_connectivity:
+                probability: 1
+        proj_Exc_VIP:
+            presynaptic: Exc
+            postsynaptic: VIP
+            synapse: rs
+            type: continuousProjection
+            delay: 0
+            weight: weight_scale_Exc * 0.7162
+            random_connectivity:
+                probability: 1
+        proj_PV_Exc:
+            presynaptic: PV
+            postsynaptic: Exc
+            synapse: rs
+            type: continuousProjection
+            delay: 0
+            weight: weight_scale_PV * -0.3329
+            random_connectivity:
+                probability: 1
+        proj_PV_PV:
+            presynaptic: PV
+            postsynaptic: PV
+            synapse: rs
+            type: continuousProjection
+            delay: 0
+            weight: weight_scale_PV * -3.4554
+            random_connectivity:
+                probability: 1
+        proj_SST_Exc:
+            presynaptic: SST
+            postsynaptic: Exc
+            synapse: rs
+            type: continuousProjection
+            delay: 0
+            weight: weight_scale_SST * -0.8039
+            random_connectivity:
+                probability: 1
+        proj_SST_PV:
+            presynaptic: SST
+            postsynaptic: PV
+            synapse: rs
+            type: continuousProjection
+            delay: 0
+            weight: weight_scale_SST * -2.1291
+            random_connectivity:
+                probability: 1
+        proj_SST_VIP:
+            presynaptic: SST
+            postsynaptic: VIP
+            synapse: rs
+            type: continuousProjection
+            delay: 0
+            weight: weight_scale_SST * -0.156
+            random_connectivity:
+                probability: 1
+        proj_VIP_SST:
+            presynaptic: VIP
+            postsynaptic: SST
+            synapse: rs
+            type: continuousProjection
+            delay: 0
+            weight: weight_scale_VIP * -2.7896
+            random_connectivity:
+                probability: 1
+    inputs:
+        baseline_curr_Exc:
+            input_source: baseline_exc_Exc
+            population: Exc
+            percentage: 100
+        baseline_curr_PV:
+            input_source: baseline_exc_PV
+            population: PV
+            percentage: 100
+        baseline_curr_SST:
+            input_source: baseline_exc_SST
+            population: SST
+            percentage: 100
+        baseline_curr_VIP:
+            input_source: baseline_exc_VIP
+            population: VIP
+            percentage: 100
+        global_offset_curr_Exc:
+            input_source: global_offset_curr_Exc
+            population: Exc
+            percentage: 100
+        global_offset_curr_PV:
+            input_source: global_offset_curr_PV
+            population: PV
+            percentage: 100
+        global_offset_curr_SST:
+            input_source: global_offset_curr_SST
+            population: SST
+            percentage: 100
+        global_offset_curr_VIP:
+            input_source: global_offset_curr_VIP
+            population: VIP
+            percentage: 100
+        modulation:
+            input_source: vip_mod_current
+            population: VIP
+            percentage: 100
