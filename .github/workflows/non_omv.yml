@@ -43,3 +43,9 @@ jobs:
         cd NeuroML
         ./regenerateAndTest.sh
 
+    - name: Test Sweep script
+      run: |
+
+        cd NeuroML
+        python Sweep.py
+

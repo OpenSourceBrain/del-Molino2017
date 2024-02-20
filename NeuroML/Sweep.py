@@ -42,7 +42,7 @@ if __name__ == '__main__':
         #vary = {'stim_amp':['1pA','1.5pA','2pA']}
         #vary = {'stim_amp':['%spA'%(i/10.0) for i in range(-3,60,1)]}
 
-        type = 'delMolinoEtAl'
+        type = 'delMolinoEtAl_low_baseline'
 
         nmllr = NeuroMLliteRunner('Sim%s.json'%(type),
                                   simulator='jNeuroML')
