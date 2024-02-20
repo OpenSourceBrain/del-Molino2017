@@ -17,7 +17,12 @@ net.parameters = {}
 net.parameters['baseline_current_Exc'] = '0.11503  nA'
 net.parameters['baseline_current_PV'] = '0.23366 nA' 
 net.parameters['baseline_current_SST'] = '0.09431 nA' 
-net.parameters['baseline_current_VIP'] = '0.08991 nA' 
+net.parameters['baseline_current_VIP'] = '0.08991 nA'
+#net.parameters['baseline_current_Exc'] = '0.0  nA'
+#net.parameters['baseline_current_PV'] = '0.0 nA' 
+#net.parameters['baseline_current_SST'] = '0.0 nA' 
+#net.parameters['baseline_current_VIP'] = '0.0 nA'
+net.parameters['global_offset_current'] = '0.0 nA'
 net.parameters['mod_current_VIP'] = '0.01 nA'
 
 net.parameters['weight_scale_Exc'] =  1
@@ -103,7 +108,7 @@ for pre in pops:
                                                                 weight='weight_scale_%s * %s' % (pre.id, weight),
                                                                 random_connectivity=RandomConnectivity(probability=1)))
 
-
+#Individual Currents
 for pop in pops:
 
     input_source = InputSource(id='baseline_exc_%s'%pop.id,
@@ -117,6 +122,21 @@ for pop in pops:
                             population=pop.id,
                             percentage=100))
 
+#Global Offset Current
+for pop in pops:
+
+    input_source = InputSource(id='global_offset_curr_%s'%pop.id,
+                               neuroml2_input='PulseGenerator',
+                               parameters={'amplitude':'global_offset_current', 'delay':'delay_baseline_curr', 'duration':'2000 ms'})
+
+    net.input_sources.append(input_source)
+    
+    net.inputs.append(Input(id='global_offset_curr_%s'%pop.id,
+                            input_source=input_source.id,
+                            population=pop.id,
+                            percentage=100))
+
+#Modulation Current
 net.inputs.append(Input(id='modulation',
                         input_source=vip_mod_current.id,
                         population=pVIP.id,
@@ -164,6 +184,7 @@ net.parameters['baseline_current_Exc'] = '0.14725  nA'
 net.parameters['baseline_current_PV'] = '0.38673 nA' 
 net.parameters['baseline_current_SST'] = '0.04027 nA' 
 net.parameters['baseline_current_VIP'] = '0.09844 nA' 
+net.parameters['global_offset_current'] = '0.0 nA'
 net.parameters['mod_current_VIP'] = '0.01 nA'
 
 net.cells = []
