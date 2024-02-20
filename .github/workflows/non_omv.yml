@@ -47,6 +47,6 @@ jobs:
       run: |
 
         cd NeuroML
-        pip install pyelectro
+        pip install pyelectro ppft
         python Sweep.py
 
