@@ -4,18 +4,25 @@ from neuromllite.NetworkGenerator import generate_and_run
 from neuromllite.NetworkGenerator import generate_neuroml2_from_network
 import sys
 
+#######################################Low Baseline###########################################
+
 ################################################################################
 ###   Build new network
 
-net = Network(id='delMolinoEtAl')
+net = Network(id='delMolinoEtAl_low_baseline')
 
-net.notes = 'delMolinoEtAl eLife 2017'
+net.notes = 'delMolinoEtAl eLife 2017: low baseline parameters'
 
 net.parameters = {}
 net.parameters['baseline_current_Exc'] = '0.11503  nA'
 net.parameters['baseline_current_PV'] = '0.23366 nA' 
 net.parameters['baseline_current_SST'] = '0.09431 nA' 
-net.parameters['baseline_current_VIP'] = '0.08991 nA' 
+net.parameters['baseline_current_VIP'] = '0.08991 nA'
+#net.parameters['baseline_current_Exc'] = '0.0  nA'
+#net.parameters['baseline_current_PV'] = '0.0 nA' 
+#net.parameters['baseline_current_SST'] = '0.0 nA' 
+#net.parameters['baseline_current_VIP'] = '0.0 nA'
+net.parameters['global_offset_current'] = '0.0 nA'
 net.parameters['mod_current_VIP'] = '0.01 nA'
 
 net.parameters['weight_scale_Exc'] =  1
@@ -101,7 +108,7 @@ for pre in pops:
                                                                 weight='weight_scale_%s * %s' % (pre.id, weight),
                                                                 random_connectivity=RandomConnectivity(probability=1)))
 
-
+#Individual Currents
 for pop in pops:
 
     input_source = InputSource(id='baseline_exc_%s'%pop.id,
@@ -115,6 +122,21 @@ for pop in pops:
                             population=pop.id,
                             percentage=100))
 
+#Global Offset Current
+for pop in pops:
+
+    input_source = InputSource(id='global_offset_curr_%s'%pop.id,
+                               neuroml2_input='PulseGenerator',
+                               parameters={'amplitude':'global_offset_current', 'delay':'delay_baseline_curr', 'duration':'2000 ms'})
+
+    net.input_sources.append(input_source)
+    
+    net.inputs.append(Input(id='global_offset_curr_%s'%pop.id,
+                            input_source=input_source.id,
+                            population=pop.id,
+                            percentage=100))
+
+#Modulation Current
 net.inputs.append(Input(id='modulation',
                         input_source=vip_mod_current.id,
                         population=pVIP.id,
@@ -129,7 +151,7 @@ new_file_y = net.to_yaml_file('%s.yaml'%net.id)
 ################################################################################
 ###   Build Simulation object & save as JSON
 
-sim = Simulation(id='SimdelMolinoEtAl',
+sim = Simulation(id='SimdelMolinoEtAl_low_baseline',
                  network=new_file,
                  duration='20',
                  dt='0.01',
@@ -148,3 +170,59 @@ import sys
 
 check_to_generate_or_run(sys.argv, sim)
 
+
+
+#################################High Baseline##############################
+
+################################################################################
+###   Build new network
+
+net.id = "delMolinoEtAl_high_baseline"
+net.notes = 'delMolinoEtAl eLife 2017: high baseline parameters'
+
+net.parameters['baseline_current_Exc'] = '0.14725  nA'
+net.parameters['baseline_current_PV'] = '0.38673 nA' 
+net.parameters['baseline_current_SST'] = '0.04027 nA' 
+net.parameters['baseline_current_VIP'] = '0.09844 nA' 
+net.parameters['global_offset_current'] = '0.0 nA'
+net.parameters['mod_current_VIP'] = '0.01 nA'
+
+net.cells = []
+net.synapses = []
+
+excCell = Cell(id='EXC', lems_source_file='RateBasedSpecifications_high_baseline.xml')
+net.cells.append(excCell)
+pvCell = Cell(id='PV', lems_source_file='RateBasedSpecifications_high_baseline.xml')
+net.cells.append(pvCell)
+sstCell = Cell(id='SST', lems_source_file='RateBasedSpecifications_high_baseline.xml')
+net.cells.append(sstCell)
+vipCell = Cell(id='VIP', lems_source_file='RateBasedSpecifications_high_baseline.xml')
+net.cells.append(vipCell)
+
+r_syn = Synapse(id='rs', lems_source_file='RateBasedSpecifications_high_baseline.xml')
+net.synapses.append(r_syn)
+
+print(net)
+print(net.to_json())
+new_file = net.to_json_file('%s.json'%net.id)
+new_file_y = net.to_yaml_file('%s.yaml'%net.id)
+
+################################################################################
+###   Build Simulation object & save as JSON
+
+sim = Simulation(id='SimdelMolinoEtAl_high_baseline',
+                 network=new_file,
+                 duration='20',
+                 dt='0.01',
+                 record_rates={'all':'*'}) 
+'''record_traces={'all':'*'},'''
+
+sim.to_json_file()
+
+################################################################################
+###   Run in some simulators
+
+from neuromllite.NetworkGenerator import check_to_generate_or_run
+import sys
+
+check_to_generate_or_run(sys.argv, sim)
