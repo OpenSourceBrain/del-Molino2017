@@ -60,9 +60,9 @@ if __name__ == '__main__':
         #vary['baseline_current_VIP']= VIP_stim_amps
 
         #vary['global_offset_current'] = ["0.05nA", "0.15nA"]
-        vary['global_offset_current'] = ['%snA'%(i/50.) for i in range(1,10,1)]
-        #vary['global_offset_current'] = ['%snA'%(i/100.) for i in range(0,30,1)]
-        #vary['global_offset_current'] = ['%snA'%(i/100.) for i in range(-10,30,1)]
+        vary['global_offset_current'] = ['%snA'%(i/50.1) for i in range(1,10,1)]
+        vary['global_offset_current'] = ['%snA'%(i/100.1) for i in range(0,30,1)]
+        #vary['global_offset_current'] = ['%snA'%(i/100.1) for i in range(-10,30,1)]
                 
         #vary = {'number_per_cell':[i for i in range(0,250,10)]}
         #vary = {'stim_amp':['1pA','1.5pA','2pA']}

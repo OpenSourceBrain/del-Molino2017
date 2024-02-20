@@ -6,6 +6,7 @@ delMolinoEtAl_low_baseline:
         baseline_current_PV: 0.23366 nA
         baseline_current_SST: 0.09431 nA
         baseline_current_VIP: 0.08991 nA
+        global_offset_current: 0.0 nA
         mod_current_VIP: 0.01 nA
         weight_scale_Exc: 1
         weight_scale_PV: 1
@@ -53,6 +54,30 @@ delMolinoEtAl_low_baseline:
         baseline_exc_VIP:
             parameters:
                 amplitude: baseline_current_VIP
+                delay: delay_baseline_curr
+                duration: 2000 ms
+            neuroml2_input: PulseGenerator
+        global_offset_curr_Exc:
+            parameters:
+                amplitude: global_offset_current
+                delay: delay_baseline_curr
+                duration: 2000 ms
+            neuroml2_input: PulseGenerator
+        global_offset_curr_PV:
+            parameters:
+                amplitude: global_offset_current
+                delay: delay_baseline_curr
+                duration: 2000 ms
+            neuroml2_input: PulseGenerator
+        global_offset_curr_SST:
+            parameters:
+                amplitude: global_offset_current
+                delay: delay_baseline_curr
+                duration: 2000 ms
+            neuroml2_input: PulseGenerator
+        global_offset_curr_VIP:
+            parameters:
+                amplitude: global_offset_current
                 delay: delay_baseline_curr
                 duration: 2000 ms
             neuroml2_input: PulseGenerator
@@ -199,6 +224,22 @@ delMolinoEtAl_low_baseline:
             percentage: 100
         baseline_curr_VIP:
             input_source: baseline_exc_VIP
+            population: VIP
+            percentage: 100
+        global_offset_curr_Exc:
+            input_source: global_offset_curr_Exc
+            population: Exc
+            percentage: 100
+        global_offset_curr_PV:
+            input_source: global_offset_curr_PV
+            population: PV
+            percentage: 100
+        global_offset_curr_SST:
+            input_source: global_offset_curr_SST
+            population: SST
+            percentage: 100
+        global_offset_curr_VIP:
+            input_source: global_offset_curr_VIP
             population: VIP
             percentage: 100
         modulation:

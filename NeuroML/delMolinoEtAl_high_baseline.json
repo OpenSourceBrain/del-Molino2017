@@ -7,14 +7,14 @@
             "baseline_current_PV": "0.38673 nA",
             "baseline_current_SST": "0.04027 nA",
             "baseline_current_VIP": "0.09844 nA",
+            "global_offset_current": "0.0 nA",
             "mod_current_VIP": "0.01 nA",
             "weight_scale_Exc": 1,
             "weight_scale_PV": 1,
             "weight_scale_SST": 1,
             "weight_scale_VIP": 1,
             "delay_baseline_curr": "0ms",
-            "delay_vip_mod_curr": "5ms",
-            "global_offset_current": "0.0 nA"
+            "delay_vip_mod_curr": "5ms"
         },
         "cells": {
             "EXC": {
@@ -71,6 +71,38 @@
             "baseline_exc_VIP": {
                 "parameters": {
                     "amplitude": "baseline_current_VIP",
+                    "delay": "delay_baseline_curr",
+                    "duration": "2000 ms"
+                },
+                "neuroml2_input": "PulseGenerator"
+            },
+            "global_offset_curr_Exc": {
+                "parameters": {
+                    "amplitude": "global_offset_current",
+                    "delay": "delay_baseline_curr",
+                    "duration": "2000 ms"
+                },
+                "neuroml2_input": "PulseGenerator"
+            },
+            "global_offset_curr_PV": {
+                "parameters": {
+                    "amplitude": "global_offset_current",
+                    "delay": "delay_baseline_curr",
+                    "duration": "2000 ms"
+                },
+                "neuroml2_input": "PulseGenerator"
+            },
+            "global_offset_curr_SST": {
+                "parameters": {
+                    "amplitude": "global_offset_current",
+                    "delay": "delay_baseline_curr",
+                    "duration": "2000 ms"
+                },
+                "neuroml2_input": "PulseGenerator"
+            },
+            "global_offset_curr_VIP": {
+                "parameters": {
+                    "amplitude": "global_offset_current",
                     "delay": "delay_baseline_curr",
                     "duration": "2000 ms"
                 },
@@ -259,6 +291,26 @@
             },
             "baseline_curr_VIP": {
                 "input_source": "baseline_exc_VIP",
+                "population": "VIP",
+                "percentage": 100
+            },
+            "global_offset_curr_Exc": {
+                "input_source": "global_offset_curr_Exc",
+                "population": "Exc",
+                "percentage": 100
+            },
+            "global_offset_curr_PV": {
+                "input_source": "global_offset_curr_PV",
+                "population": "PV",
+                "percentage": 100
+            },
+            "global_offset_curr_SST": {
+                "input_source": "global_offset_curr_SST",
+                "population": "SST",
+                "percentage": 100
+            },
+            "global_offset_curr_VIP": {
+                "input_source": "global_offset_curr_VIP",
                 "population": "VIP",
                 "percentage": 100
             },
