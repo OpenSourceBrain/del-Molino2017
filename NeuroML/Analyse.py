@@ -16,6 +16,9 @@ def analyse(version):
     sim = load_simulation_json('Sim%s.json'%version)
     net = load_network_json('%s.json'%version)
 
+    net.parameters['weight_scale_SST'] = 0
+    net.parameters['delay_vip_mod_curr'] = '100s'
+
     traces, events = generate_and_run(sim, 
                                       network=net, 
                                       simulator="jNeuroML",
@@ -48,23 +51,17 @@ def analyse(version):
     colors = pops_vs_colors.values()
 
     fig, ax = plt.subplots()
-    plt.get_current_fig_manager().set_window_title('Steady state rates (pre modulation): %s'%version)
+    plt.get_current_fig_manager().set_window_title('Steady state rates (start simulation): %s'%version)
     ax.set_ylabel('Avg firing rate (Hz)')
     ax.bar(pops, rates, color=colors)
 
     fig, ax = plt.subplots()
-    plt.get_current_fig_manager().set_window_title('Steady state rates (post modulation): %s'%version)
+    plt.get_current_fig_manager().set_window_title('Steady state rates (end simulation): %s'%version)
     ax.set_ylabel('Avg firing rate (Hz)')
     rates = [post_mod_vals[pop]for pop in pops_vs_colors.keys()]
     ax.bar(pops, rates, color=colors)
 
     
-
-
-
-
-
-
 
 if __name__ == '__main__':
 
