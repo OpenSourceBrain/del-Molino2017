@@ -41,3 +41,7 @@ arm64
 /NeuroML/LEMS_SimdelMolinoEtAl_low_baseline.xml
 /NeuroML/average_last_1percent_delMolinoEtAl_low_baseline.png
 /NeuroML/firing_rates_delMolinoEtAl_low_baseline.png
+/NeuroML/delMolinoEtAl_high_baseline.net.nml
+/NeuroML/delMolinoEtAl_high_baseline__lems.xml
+/NeuroML/delMolinoEtAl_low_baseline.net.nml
+/NeuroML/delMolinoEtAl_low_baseline__lems.xml
