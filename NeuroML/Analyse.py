@@ -65,7 +65,9 @@ def analyse(version):
 
 if __name__ == '__main__':
 
-    for v in ['delMolinoEtAl_low_baseline','delMolinoEtAl_high_baseline']:
-        analyse(v)
+    #for v in ['delMolinoEtAl_low_baseline','delMolinoEtAl_high_baseline']:
+    #    analyse(v)
+
+    analyse('delMolinoEtAl_adjusted')
 
     plt.show()

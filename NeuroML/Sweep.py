@@ -60,16 +60,17 @@ if __name__ == '__main__':
         #vary['baseline_current_VIP']= VIP_stim_amps
 
         #vary['global_offset_current'] = ["0.05nA", "0.15nA"]
-        vary['global_offset_current'] = ['%snA'%(i/50.1) for i in range(1,10,1)]
-        vary['global_offset_current'] = ['%snA'%(i/100.1) for i in range(0,30,1)]
-        #vary['global_offset_current'] = ['%snA'%(i/100.1) for i in range(-10,30,1)]
+        #vary['global_offset_current'] = ['%snA'%(i/50.1) for i in range(1,10,1)]
+        #vary['global_offset_current'] = ['%snA'%(i/100.1) for i in range(0,31,1)]
+        vary['global_offset_current'] = ['%snA'%(i/100.1) for i in range(-10,31,1)]
                 
         #vary = {'number_per_cell':[i for i in range(0,250,10)]}
         #vary = {'stim_amp':['1pA','1.5pA','2pA']}
         #vary = {'stim_amp':['%spA'%(i/10.0) for i in range(-3,60,1)]}
 
         #type = 'delMolinoEtAl_high_baseline'
-        type = 'delMolinoEtAl_low_baseline'
+        #type = 'delMolinoEtAl_low_baseline'
+        type = 'delMolinoEtAl_adjusted'
 
         nmllr = NeuroMLliteRunner('Sim%s.json'%(type),
                                   simulator='jNeuroML')
@@ -97,4 +98,5 @@ if __name__ == '__main__':
             print("Showing plots")
             print("\n\n")
             ps.print_report()
+            plt.grid(True)
             plt.show()
