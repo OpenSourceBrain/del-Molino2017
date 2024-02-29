@@ -1,0 +1,12 @@
+<Lems>
+    
+    <Include file="RateBased.xml" />
+
+    <abbottChance2005Cell id="EXC" Vth="-48mV" Vr="-84mV" Vl="-53mV" Vscale="0mV" gl="8nS" tau="44ms" tau_r="2ms" r0="1Hz"/>
+    <abbottChance2005Cell id="PV"  Vth="-50mV" Vr="-64mV" Vl="-72mV" Vscale="0mV" gl="7nS" tau="21ms" tau_r="2ms" r0="10Hz"/>
+    <abbottChance2005Cell id="SST" Vth="-52mV" Vr="-72mV" Vl="-58mV" Vscale="0mV" gl="6nS" tau="30ms" tau_r="2ms" r0="3Hz"/>
+    <abbottChance2005Cell id="VIP" Vth="-45mV" Vr="-70mV" Vl="-58mV" Vscale="1mV" gl="6nS" tau="29ms" tau_r="2ms" r0="2Hz"/>
+
+    <rateSynapsePicoAmp id="rs" />
+
+</Lems>
